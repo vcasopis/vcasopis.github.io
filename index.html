@@ -10,8 +10,6 @@
 
 <style>
 
-/* ─── RESET ─────────────────────────────────────────────── */
-
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -73,9 +71,6 @@ button {
   background: none;
 }
 
-
-/* ─── ORNAMENT ───────────────────────────────────────────── */
-
 .om-symbol {
   display: inline-block;
   color: var(--gold);
@@ -91,9 +86,6 @@ button {
   margin: 8px 0;
   opacity: .7;
 }
-
-
-/* ─── UTILITY ────────────────────────────────────────────── */
 
 .badge {
   display: inline-block;
@@ -1078,42 +1070,6 @@ button {
 }
 
 
-/* ─── VRSTICA Z GUMBOM NAZAJ ───────────────────────────── */
-
-.reader-back-row {
-  background: var(--brown);
-  border-bottom: 1px solid rgba(201,151,42,.25);
-  padding: 8px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.reader-back {
-  color: var(--gold-pale);
-  font-family: var(--font-deco);
-  font-size: 11px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-
-  display: flex;
-  align-items: center;
-  gap: 6px;
-
-  padding: 7px 14px;
-  white-space: nowrap;
-
-  border: 1px solid rgba(201,151,42,.45);
-
-  transition: all var(--transition);
-}
-
-.reader-back:hover {
-  color: var(--gold);
-  border-color: var(--gold);
-}
-
-
 /* ─── VSEBINA ČLANKA ───────────────────────────────────── */
 
 .reader-content {
@@ -1406,18 +1362,6 @@ button {
     align-items: flex-end;
   }
 
-
-  /* MOBILE ČITALNIK */
-
-  .reader-back-row {
-    padding: 7px 12px;
-    overflow-x: auto;
-  }
-
-  .reader-back {
-    font-size: 10px;
-  }
-
   .reader-content {
     padding: 32px 16px 60px;
   }
@@ -1467,7 +1411,6 @@ button {
 
 <body>
 
-
 <div class="toast-container" id="toastContainer"></div>
 
 <div class="admin-mode-banner" id="adminBanner">
@@ -1504,11 +1447,8 @@ button {
   <div class="header-brand">
 
     <div class="header-left">
-  <button class="reader-back" onclick="closeReader()">
-    ← Nazaj na naslovnico
-  </button>
 
-  <div class="search-bar">
+      <div class="search-bar">
 
         <svg width="13" height="13" fill="none" viewBox="0 0 24 24"
              stroke="rgba(245,230,184,.5)" stroke-width="2">
@@ -1802,11 +1742,6 @@ button {
         </nav>
 
       </header>
-
-
-      <!-- NAZAJ -->
-
-      
 
     </div>
 
@@ -2221,7 +2156,7 @@ button {
     <div class="modal-header">
 
       <h3>
-        Urednički dostop
+        Uredniški dostop
       </h3>
 
       <button
@@ -2636,8 +2571,6 @@ function renderReaderNav() {
   nav.innerHTML = '';
 
 
-  /* VSE */
-
   const all =
     document.createElement('div');
 
@@ -2662,8 +2595,6 @@ function renderReaderNav() {
 
   nav.appendChild(all);
 
-
-  /* KATEGORIJE */
 
   STATE.categories.forEach(cat => {
 
@@ -2783,8 +2714,6 @@ async function loadArticles() {
   } = STATE.settings;
 
 
-  /* 1. SAME ORIGIN */
-
   try {
 
     const res =
@@ -2818,8 +2747,6 @@ async function loadArticles() {
 
   } catch(e) {}
 
-
-  /* 2. RAW GITHUB */
 
   if (
     ghOwner &&
@@ -2859,8 +2786,6 @@ async function loadArticles() {
 
   }
 
-
-  /* 3. GITHUB API */
 
   if (
     ghOwner &&
@@ -3680,7 +3605,7 @@ function updateReaderAdminUI() {
     toggle.textContent =
       STATE.isAdmin
         ? 'Odjava'
-        : 'Urednički dostop';
+        : 'Uredniški dostop';
 
   }
 
@@ -3906,8 +3831,6 @@ function openReader(id) {
   `;
 
 
-  /* POSODOBI DATUM */
-
   const mainDate =
     document.getElementById(
       'currentDate'
@@ -3933,17 +3856,10 @@ function openReader(id) {
   }
 
 
-  /* POSODOBI ADMIN */
-
   updateReaderAdminUI();
-
-
-  /* POSODOBI KATEGORIJE */
 
   renderReaderNav();
 
-
-  /* ODPRI ČITALNIK */
 
   const overlay =
     document.getElementById(
@@ -3953,18 +3869,12 @@ function openReader(id) {
   overlay.classList.add('open');
 
 
-  /* PREPREČI DRSENJE OZADJA */
-
   document.body.style.overflow =
     'hidden';
 
 
-  /* VEDNO ZAČNI NA VRHU ČLANKA */
-
   overlay.scrollTop = 0;
 
-
-  /* PRENOS ISKANJA V ČITALNIK */
 
   const mainSearch =
     document.getElementById(
@@ -4558,7 +4468,7 @@ function adminLogout() {
       'btnAdminToggle'
     )
     .textContent =
-      'Urednički dostop';
+      'Uredniški dostop';
 
 
   document
