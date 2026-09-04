@@ -1050,35 +1050,44 @@ button {
   opacity: 0;
   pointer-events: none;
 
-  transform: translateY(16px);
-  transition: opacity .22s ease, transform .22s ease;
+  transform: none;
+  transition: opacity .22s ease;
 }
 
 .reader-overlay.open {
   opacity: 1;
   pointer-events: all;
-  transform: translateY(0);
 }
 
 
-/* STALNI HEADER V ČITALNIKU */
+/* ─── CELOTEN HEADER V ČITALNIKU ───────────────────────── */
 
-.reader-header {
-  background: var(--burgundy);
-  padding: 10px 24px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-
+.reader-full-header {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
+  background: var(--burgundy);
+  box-shadow: 0 4px 24px rgba(44,24,16,.35);
+}
 
-  border-bottom: 2px solid var(--gold);
+.reader-full-header .site-header {
+  position: static;
+  top: auto;
+  z-index: auto;
+  box-shadow: none;
 }
 
 
-/* GUMB NAZAJ */
+/* ─── VRSTICA Z GUMBOM NAZAJ ───────────────────────────── */
+
+.reader-back-row {
+  background: var(--brown);
+  border-bottom: 1px solid rgba(201,151,42,.25);
+  padding: 8px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
 .reader-back {
   color: var(--gold-pale);
@@ -1091,62 +1100,21 @@ button {
   align-items: center;
   gap: 6px;
 
-  padding: 7px 0;
+  padding: 7px 14px;
   white-space: nowrap;
 
-  transition: color var(--transition);
+  border: 1px solid rgba(201,151,42,.45);
+
+  transition: all var(--transition);
 }
 
 .reader-back:hover {
   color: var(--gold);
+  border-color: var(--gold);
 }
 
 
-/* KATEGORIJE V ČITALNIKU */
-
-.reader-nav {
-  flex: 1;
-  min-width: 0;
-
-  display: flex;
-  align-items: center;
-  gap: 4px;
-
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.reader-nav::-webkit-scrollbar {
-  display: none;
-}
-
-.reader-nav .nav-item {
-  flex-shrink: 0;
-
-  padding: 7px 10px;
-
-  font-family: var(--font-deco);
-  font-size: 10px;
-  letter-spacing: .07em;
-
-  color: rgba(245,230,184,.55);
-
-  border-bottom: 2px solid transparent;
-
-  white-space: nowrap;
-}
-
-.reader-nav .nav-item:hover {
-  color: var(--gold-light);
-}
-
-.reader-nav .nav-item.active {
-  color: var(--gold);
-  border-bottom-color: var(--gold);
-}
-
-
-/* VSEBINA ČLANKA */
+/* ─── VSEBINA ČLANKA ───────────────────────────────────── */
 
 .reader-content {
   max-width: 900px;
@@ -1438,22 +1406,16 @@ button {
     align-items: flex-end;
   }
 
-  .reader-header {
-    padding: 8px 12px;
-    gap: 8px;
+
+  /* MOBILE ČITALNIK */
+
+  .reader-back-row {
+    padding: 7px 12px;
+    overflow-x: auto;
   }
 
   .reader-back {
     font-size: 10px;
-  }
-
-  .reader-nav {
-    gap: 2px;
-  }
-
-  .reader-nav .nav-item {
-    padding: 6px 8px;
-    font-size: 9px;
   }
 
   .reader-content {
@@ -1464,6 +1426,32 @@ button {
     flex-wrap: wrap;
     gap: 8px 12px;
   }
+
+  .reader-full-header .header-brand {
+    height: 64px;
+  }
+
+  .reader-full-header .brand-name {
+    font-size: 22px;
+  }
+
+  .reader-full-header .brand-tagline {
+    font-size: 10px;
+  }
+
+  .reader-full-header .search-bar {
+    display: none;
+  }
+
+  .reader-full-header .nav-inner {
+    padding: 0 8px;
+  }
+
+  .reader-full-header .nav-item {
+    padding: 9px 10px;
+    font-size: 9px;
+  }
+
 }
 
 
@@ -1656,33 +1644,183 @@ button {
   </div>
 
 
-  <!-- ARTICLE READER -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- CELOTEN HEADER V ČITALNIKU -->
+  <!-- ═══════════════════════════════════════════════════ -->
 
   <div
     class="reader-overlay"
     id="readerOverlay"
   >
 
-    <div class="reader-header">
-
-      <button
-        class="reader-back"
-        onclick="closeReader()"
-      >
-        ← Nazaj
-      </button>
+    <div class="reader-full-header">
 
 
-      <div
-        class="reader-nav"
-        id="readerNav"
-      ></div>
+      <!-- READER TOPBAR -->
+
+      <div class="topbar">
+
+        <div class="topbar-inner">
+
+          <div style="display:flex;align-items:center;gap:10px">
+
+            <span id="readerCurrentDate"></span>
+
+            <span style="color:rgba(201,151,42,.4)">
+              ✦
+            </span>
+
+            <span>
+              Slovenija
+            </span>
+
+          </div>
 
 
-      <div id="readerAdminActions"></div>
+          <div class="topbar-actions">
+
+            <button
+              id="readerAdminToggle"
+              onclick="readerAdminAction()"
+            >
+              Urednički dostop
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- READER GLAVNI HEADER -->
+
+      <header class="site-header">
+
+        <div class="header-mandala-bar"></div>
+
+
+        <div class="header-brand">
+
+
+          <!-- LEVO: ISKANJE -->
+
+          <div class="header-left">
+
+            <div class="search-bar">
+
+              <svg
+                width="13"
+                height="13"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="rgba(245,230,184,.5)"
+                stroke-width="2"
+              >
+
+                <circle
+                  cx="11"
+                  cy="11"
+                  r="8"
+                />
+
+                <path
+                  d="m21 21-4.35-4.35"
+                />
+
+              </svg>
+
+
+              <input
+                type="text"
+                id="readerSearchInput"
+                placeholder="Iskanje vedske modrosti…"
+              >
+
+            </div>
+
+          </div>
+
+
+          <!-- SREDINA: LOGOTIP -->
+
+          <div
+            class="brand-center"
+            style="cursor:pointer"
+            onclick="closeReader();filterCategory('vse',null)"
+          >
+
+            <div class="brand-om">
+              ✦ OM ✦
+            </div>
+
+            <div class="brand-name">
+              Vedski<span> Časopis</span>
+            </div>
+
+            <div class="brand-tagline">
+              Modrost Starih Ved — Luč Sodobnega Sveta
+            </div>
+
+            <div class="brand-divider">
+              ⸻ ✦ ⸻
+            </div>
+
+          </div>
+
+
+          <!-- DESNO: NOV ZAPIS -->
+
+          <div class="header-right">
+
+            <button
+              class="btn btn-primary"
+              id="readerNewArticle"
+              style="display:none"
+              onclick="closeReader();openArticleEditor()"
+            >
+              + Nov zapis
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- KATEGORIJE -->
+
+        <nav class="site-nav">
+
+          <div
+            class="nav-inner"
+            id="readerNavInner"
+          ></div>
+
+        </nav>
+
+      </header>
+
+
+      <!-- NAZAJ -->
+
+      <div class="reader-back-row">
+
+        <button
+          class="reader-back"
+          onclick="closeReader()"
+        >
+          ← Nazaj na naslovnico
+        </button>
+
+
+        <div id="readerAdminActions"></div>
+
+      </div>
 
     </div>
 
+
+    <!-- ČLANEK -->
 
     <div
       class="reader-content"
@@ -2299,29 +2437,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
   setupSearch();
 
+  setupReaderSearch();
+
   document.getElementById('footerYear').textContent =
     new Date().getFullYear();
 
   document.getElementById('btnNewArticle')
-    .addEventListener('click', () => openArticleEditor());
+    .addEventListener(
+      'click',
+      () => openArticleEditor()
+    );
 
   document.getElementById('btnSettings')
-    .addEventListener('click', openSettings);
+    .addEventListener(
+      'click',
+      openSettings
+    );
 
   document.getElementById('btnAdminToggle')
-    .addEventListener('click', () => openModal('loginModal'));
+    .addEventListener(
+      'click',
+      () => openModal('loginModal')
+    );
 
-  document.querySelectorAll('.modal-overlay').forEach(el => {
 
-    el.addEventListener('click', e => {
+  document.querySelectorAll('.modal-overlay')
+    .forEach(el => {
 
-      if (e.target === el) {
-        el.classList.remove('open');
-      }
+      el.addEventListener('click', e => {
+
+        if (e.target === el) {
+          el.classList.remove('open');
+        }
+
+      });
 
     });
-
-  });
 
 });
 
@@ -2332,27 +2483,34 @@ function loadLocalState() {
 
   try {
 
-    const s = localStorage.getItem('vedski_settings');
+    const s =
+      localStorage.getItem('vedski_settings');
 
     if (s) {
+
       STATE.settings = {
         ...STATE.settings,
         ...JSON.parse(s)
       };
+
     }
 
 
-    const c = localStorage.getItem('vedski_cats');
+    const c =
+      localStorage.getItem('vedski_cats');
 
     if (c) {
-      STATE.categories = JSON.parse(c);
+      STATE.categories =
+        JSON.parse(c);
     }
 
 
-    const a = localStorage.getItem('vedski_articles');
+    const a =
+      localStorage.getItem('vedski_articles');
 
     if (a) {
-      STATE.articles = JSON.parse(a);
+      STATE.articles =
+        JSON.parse(a);
     }
 
   } catch(e) {}
@@ -2386,7 +2544,7 @@ function setDate() {
 
   const d = new Date();
 
-  document.getElementById('currentDate').textContent =
+  const dateText =
     d.toLocaleDateString(
       'sl-SI',
       {
@@ -2397,6 +2555,24 @@ function setDate() {
       }
     );
 
+
+  const mainDate =
+    document.getElementById('currentDate');
+
+  if (mainDate) {
+    mainDate.textContent =
+      dateText;
+  }
+
+
+  const readerDate =
+    document.getElementById('readerCurrentDate');
+
+  if (readerDate) {
+    readerDate.textContent =
+      dateText;
+  }
+
 }
 
 
@@ -2404,9 +2580,14 @@ function setDate() {
 
 function renderNav() {
 
-  const nav = document.getElementById('navInner');
+  const nav =
+    document.getElementById('navInner');
+
+  if (!nav) return;
+
 
   nav.innerHTML = `
+
     <div
       class="nav-item ${STATE.currentCategory === 'vse' ? 'active' : ''}"
       data-cat="vse"
@@ -2414,23 +2595,34 @@ function renderNav() {
     >
       ✦ Vse vsebine
     </div>
+
   `;
 
 
   STATE.categories.forEach(cat => {
 
-    const d = document.createElement('div');
+    const d =
+      document.createElement('div');
 
     d.className =
       'nav-item' +
-      (STATE.currentCategory === cat ? ' active' : '');
+      (
+        STATE.currentCategory === cat
+          ? ' active'
+          : ''
+      );
 
     d.dataset.cat = cat;
 
     d.textContent = cat;
 
     d.onclick = function() {
-      filterCategory(cat, this);
+
+      filterCategory(
+        cat,
+        this
+      );
+
     };
 
     nav.appendChild(d);
@@ -2442,31 +2634,34 @@ function renderNav() {
 
 /* ── READER NAV ─────────────────────────────────────────── */
 
-/*
-   To je pomemben nov del.
-
-   Ko odpremo članek, ta funkcija ustvari
-   kategorije tudi v zgornji vrstici čitalnika.
-*/
-
 function renderReaderNav() {
 
-  const nav = document.getElementById('readerNav');
+  const nav =
+    document.getElementById('readerNavInner');
 
   if (!nav) return;
+
 
   nav.innerHTML = '';
 
 
   /* VSE */
 
-  const all = document.createElement('div');
+  const all =
+    document.createElement('div');
 
   all.className =
     'nav-item' +
-    (STATE.currentCategory === 'vse' ? ' active' : '');
+    (
+      STATE.currentCategory === 'vse'
+        ? ' active'
+        : ''
+    );
 
-  all.textContent = '✦ Vse';
+  all.dataset.cat = 'vse';
+
+  all.textContent =
+    '✦ Vse vsebine';
 
   all.onclick = function() {
 
@@ -2477,15 +2672,22 @@ function renderReaderNav() {
   nav.appendChild(all);
 
 
-  /* POSAMEZNE KATEGORIJE */
+  /* KATEGORIJE */
 
   STATE.categories.forEach(cat => {
 
-    const item = document.createElement('div');
+    const item =
+      document.createElement('div');
 
     item.className =
       'nav-item' +
-      (STATE.currentCategory === cat ? ' active' : '');
+      (
+        STATE.currentCategory === cat
+          ? ' active'
+          : ''
+      );
+
+    item.dataset.cat = cat;
 
     item.textContent = cat;
 
@@ -2502,16 +2704,16 @@ function renderReaderNav() {
 }
 
 
-/*
-   Ko uporabnik klikne kategorijo med branjem,
-   zapremo članek in preklopimo na izbrano kategorijo.
-*/
+/* ── READER CATEGORY ───────────────────────────────────── */
 
 function readerFilterCategory(cat) {
 
   closeReader();
 
-  filterCategory(cat, null);
+  filterCategory(
+    cat,
+    null
+  );
 
 }
 
@@ -2523,8 +2725,11 @@ function filterCategory(cat, el) {
   STATE.currentCategory = cat;
 
 
-  document.querySelectorAll('.nav-item')
-    .forEach(n => n.classList.remove('active'));
+  document
+    .querySelectorAll('.nav-item')
+    .forEach(n =>
+      n.classList.remove('active')
+    );
 
 
   if (el) {
@@ -2547,16 +2752,20 @@ function filterCategory(cat, el) {
   }
 
 
-  document.getElementById('sectionTitle').textContent =
-    cat === 'vse'
-      ? 'Najnovejši zapisi'
-      : cat;
+  document
+    .getElementById('sectionTitle')
+    .textContent =
+      cat === 'vse'
+        ? 'Najnovejši zapisi'
+        : cat;
 
 
-  document.getElementById('heroSection').style.display =
-    cat === 'vse'
-      ? ''
-      : 'none';
+  document
+    .getElementById('heroSection')
+    .style.display =
+      cat === 'vse'
+        ? ''
+        : 'none';
 
 
   window.scrollTo({
@@ -2587,17 +2796,19 @@ async function loadArticles() {
 
   try {
 
-    const res = await fetch(
-      ghFilePath || 'articles.json',
-      {
-        cache: 'no-store'
-      }
-    );
+    const res =
+      await fetch(
+        ghFilePath || 'articles.json',
+        {
+          cache: 'no-store'
+        }
+      );
 
 
     if (res.ok) {
 
-      const j = await res.json();
+      const j =
+        await res.json();
 
       STATE.articles =
         j.articles || j;
@@ -2605,7 +2816,9 @@ async function loadArticles() {
       saveLocalState();
 
       renderHero();
+
       renderArticles();
+
       renderSidebar();
 
       return;
@@ -2617,18 +2830,24 @@ async function loadArticles() {
 
   /* 2. RAW GITHUB */
 
-  if (ghOwner && ghRepo && ghFilePath) {
+  if (
+    ghOwner &&
+    ghRepo &&
+    ghFilePath
+  ) {
 
     try {
 
-      const res = await fetch(
-        `https://raw.githubusercontent.com/${ghOwner}/${ghRepo}/${ghBranch || 'main'}/${ghFilePath}?t=${Date.now()}`
-      );
+      const res =
+        await fetch(
+          `https://raw.githubusercontent.com/${ghOwner}/${ghRepo}/${ghBranch || 'main'}/${ghFilePath}?t=${Date.now()}`
+        );
 
 
       if (res.ok) {
 
-        const j = await res.json();
+        const j =
+          await res.json();
 
         STATE.articles =
           j.articles || j;
@@ -2636,7 +2855,9 @@ async function loadArticles() {
         saveLocalState();
 
         renderHero();
+
         renderArticles();
+
         renderSidebar();
 
         return;
@@ -2659,27 +2880,37 @@ async function loadArticles() {
 
     try {
 
-      const res = await fetch(
+      const res =
+        await fetch(
 
-        `https://api.github.com/repos/${ghOwner}/${ghRepo}/contents/${ghFilePath}?ref=${ghBranch || 'main'}`,
+          `https://api.github.com/repos/${ghOwner}/${ghRepo}/contents/${ghFilePath}?ref=${ghBranch || 'main'}`,
 
-        {
-          headers: {
-            Authorization: `token ${ghToken}`,
-            Accept: 'application/vnd.github.v3+json'
+          {
+            headers: {
+              Authorization:
+                `token ${ghToken}`,
+
+              Accept:
+                'application/vnd.github.v3+json'
+            }
           }
-        }
 
-      );
+        );
 
 
       if (res.ok) {
 
-        const j = await res.json();
+        const j =
+          await res.json();
 
         STATE.articles =
           JSON.parse(
-            atob(j.content.replace(/\s/g, ''))
+            atob(
+              j.content.replace(
+                /\s/g,
+                ''
+              )
+            )
           ).articles || [];
 
         saveLocalState();
@@ -2692,7 +2923,9 @@ async function loadArticles() {
 
 
   renderHero();
+
   renderArticles();
+
   renderSidebar();
 
 }
@@ -2705,7 +2938,8 @@ async function refreshArticles() {
   const btn =
     document.getElementById('btnRefresh');
 
-  btn.textContent = '↺ …';
+  btn.textContent =
+    '↺ …';
 
   btn.disabled = true;
 
@@ -2713,7 +2947,8 @@ async function refreshArticles() {
   await loadArticles();
 
 
-  btn.textContent = '↺ Osveži';
+  btn.textContent =
+    '↺ Osveži';
 
   btn.disabled = false;
 
@@ -2739,7 +2974,11 @@ async function saveToGitHub() {
   } = STATE.settings;
 
 
-  if (!ghToken || !ghOwner || !ghRepo) {
+  if (
+    !ghToken ||
+    !ghOwner ||
+    !ghRepo
+  ) {
     return false;
   }
 
@@ -2749,23 +2988,28 @@ async function saveToGitHub() {
 
   try {
 
-    const r = await fetch(
+    const r =
+      await fetch(
 
-      `https://api.github.com/repos/${ghOwner}/${ghRepo}/contents/${ghFilePath}?ref=${ghBranch || 'main'}`,
+        `https://api.github.com/repos/${ghOwner}/${ghRepo}/contents/${ghFilePath}?ref=${ghBranch || 'main'}`,
 
-      {
-        headers: {
-          Authorization: `token ${ghToken}`,
-          Accept: 'application/vnd.github.v3+json'
+        {
+          headers: {
+            Authorization:
+              `token ${ghToken}`,
+
+            Accept:
+              'application/vnd.github.v3+json'
+          }
         }
-      }
 
-    );
+      );
 
 
     if (r.ok) {
 
-      const j = await r.json();
+      const j =
+        await r.json();
 
       sha = j.sha;
 
@@ -2780,7 +3024,8 @@ async function saveToGitHub() {
         encodeURIComponent(
           JSON.stringify(
             {
-              articles: STATE.articles
+              articles:
+                STATE.articles
             },
             null,
             2
@@ -2808,24 +3053,31 @@ async function saveToGitHub() {
   }
 
 
-  const res = await fetch(
+  const res =
+    await fetch(
 
-    `https://api.github.com/repos/${ghOwner}/${ghRepo}/contents/${ghFilePath}`,
+      `https://api.github.com/repos/${ghOwner}/${ghRepo}/contents/${ghFilePath}`,
 
-    {
-      method: 'PUT',
+      {
+        method: 'PUT',
 
-      headers: {
-        Authorization: `token ${ghToken}`,
-        'Content-Type': 'application/json',
-        Accept: 'application/vnd.github.v3+json'
-      },
+        headers: {
+          Authorization:
+            `token ${ghToken}`,
 
-      body: JSON.stringify(body)
+          'Content-Type':
+            'application/json',
 
-    }
+          Accept:
+            'application/vnd.github.v3+json'
+        },
 
-  );
+        body:
+          JSON.stringify(body)
+
+      }
+
+    );
 
 
   return res.ok;
@@ -2859,11 +3111,14 @@ function renderHero() {
       );
 
 
-  const h = sorted[0];
+  const h =
+    sorted[0];
 
-  const h2 = sorted[1];
+  const h2 =
+    sorted[1];
 
-  const h3 = sorted[2];
+  const h3 =
+    sorted[2];
 
 
   s.innerHTML = `
@@ -2872,7 +3127,9 @@ function renderHero() {
       ✦ Izpostavljeno ✦
     </div>
 
+
     <div class="hero-grid">
+
 
       <div
         class="hero-main"
@@ -2895,6 +3152,7 @@ function renderHero() {
           `<div
             style="width:100%;height:100%;background:var(--brown)"
           ></div>`
+
         }
 
 
@@ -2918,7 +3176,9 @@ function renderHero() {
               ${esc(h.author || 'Uredništvo')}
             </span>
 
-            <span>✦</span>
+            <span>
+              ✦
+            </span>
 
             <span>
               ${formatDate(h.date)}
@@ -2954,9 +3214,13 @@ function renderHero() {
           </p>
 
           <div class="hero-side-meta">
+
             ${esc(h2.author || 'Uredništvo')}
+
             ✦
+
             ${formatDate(h2.date)}
+
           </div>
 
         </div>`
@@ -2964,6 +3228,7 @@ function renderHero() {
         :
 
         ''
+
       }
 
 
@@ -2990,9 +3255,13 @@ function renderHero() {
           </p>
 
           <div class="hero-side-meta">
+
             ${esc(h3.author || 'Uredništvo')}
+
             ✦
+
             ${formatDate(h3.date)}
+
           </div>
 
         </div>`
@@ -3000,6 +3269,7 @@ function renderHero() {
         :
 
         ''
+
       }
 
     </div>
@@ -3017,10 +3287,14 @@ function renderArticles() {
     document.getElementById('articlesGrid');
 
 
+  const searchInput =
+    document.getElementById('searchInput');
+
+
   const q =
-    document.getElementById('searchInput')
-      .value
-      .toLowerCase();
+    searchInput
+      ? searchInput.value.toLowerCase()
+      : '';
 
 
   let arts =
@@ -3032,7 +3306,9 @@ function renderArticles() {
       );
 
 
-  if (STATE.currentCategory !== 'vse') {
+  if (
+    STATE.currentCategory !== 'vse'
+  ) {
 
     arts =
       arts.filter(
@@ -3112,6 +3388,7 @@ function renderArticles() {
           :
 
           ''
+
         }
 
       </div>
@@ -3131,6 +3408,7 @@ function renderArticles() {
         class="article-card"
         onclick="openReader(${a.id})"
       >
+
 
         <div class="card-image">
 
@@ -3179,19 +3457,23 @@ function renderArticles() {
 
         <div class="card-body">
 
+
           <div class="card-category">
             ${esc(a.category)}
           </div>
+
 
           <div class="card-title">
             ${esc(a.title)}
           </div>
 
+
           <div class="card-excerpt">
 
             ${esc(
               a.excerpt ||
-              (a.content || '').substring(0,160)
+              (a.content || '')
+                .substring(0,160)
             )}
 
           </div>
@@ -3206,10 +3488,14 @@ function renderArticles() {
               </div>
 
               <span>
-                ${esc(a.author || 'Uredništvo')}
+                ${esc(
+                  a.author ||
+                  'Uredništvo'
+                )}
               </span>
 
             </div>
+
 
             <span>
               ${formatDate(a.date)}
@@ -3244,6 +3530,7 @@ function renderArticles() {
             :
 
             ''
+
           }
 
         </div>
@@ -3305,7 +3592,6 @@ function renderSidebar() {
 
 
       ${
-
         top.map((a,i) => `
 
           <div
@@ -3334,7 +3620,6 @@ function renderSidebar() {
           </div>
 
         `).join('')
-
       }
 
     </div>
@@ -3348,7 +3633,6 @@ function renderSidebar() {
 
 
       ${
-
         STATE.categories.map(c => {
 
           const cnt =
@@ -3391,15 +3675,116 @@ function renderSidebar() {
 }
 
 
+/* ── READER ADMIN UI ───────────────────────────────────── */
+
+function updateReaderAdminUI() {
+
+  const toggle =
+    document.getElementById(
+      'readerAdminToggle'
+    );
+
+  if (toggle) {
+
+    toggle.textContent =
+      STATE.isAdmin
+        ? 'Odjava'
+        : 'Urednički dostop';
+
+  }
+
+
+  const newArticle =
+    document.getElementById(
+      'readerNewArticle'
+    );
+
+  if (newArticle) {
+
+    newArticle.style.display =
+      STATE.isAdmin
+        ? 'inline-flex'
+        : 'none';
+
+  }
+
+}
+
+
+/* ── READER ADMIN ACTION ───────────────────────────────── */
+
+function readerAdminAction() {
+
+  if (STATE.isAdmin) {
+
+    adminLogout();
+
+  } else {
+
+    closeReader();
+
+    openModal('loginModal');
+
+  }
+
+}
+
+
+/* ── READER SEARCH ──────────────────────────────────────── */
+
+function setupReaderSearch() {
+
+  const input =
+    document.getElementById(
+      'readerSearchInput'
+    );
+
+  if (!input) return;
+
+
+  input.addEventListener(
+    'keydown',
+    e => {
+
+      if (e.key === 'Enter') {
+
+        const value =
+          input.value.trim();
+
+
+        closeReader();
+
+
+        const mainSearch =
+          document.getElementById(
+            'searchInput'
+          );
+
+        if (mainSearch) {
+
+          mainSearch.value =
+            value;
+
+        }
+
+
+        renderArticles();
+
+
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+
+      }
+
+    }
+  );
+
+}
+
+
 /* ── READER ─────────────────────────────────────────────── */
-
-/*
-   Tukaj je glavna sprememba.
-
-   Preden odpremo članek, pokličemo
-   renderReaderNav(), zato se kategorije
-   vedno prikažejo v zgornjem headerju.
-*/
 
 function openReader(id) {
 
@@ -3413,7 +3798,9 @@ function openReader(id) {
 
 
   const content =
-    document.getElementById('readerContent');
+    document.getElementById(
+      'readerContent'
+    );
 
 
   content.innerHTML = `
@@ -3431,19 +3818,27 @@ function openReader(id) {
     <div class="reader-meta">
 
       <span>
-        ${esc(a.author || 'Uredništvo')}
+        ${esc(
+          a.author ||
+          'Uredništvo'
+        )}
       </span>
 
-      <span>✦</span>
+      <span>
+        ✦
+      </span>
 
       <span>
         ${formatDate(a.date)}
       </span>
 
-      <span>✦</span>
+      <span>
+        ✦
+      </span>
 
       <span>
-        ${readTime(a.content)} min branja
+        ${readTime(a.content)}
+        min branja
       </span>
 
     </div>
@@ -3464,6 +3859,7 @@ function openReader(id) {
       :
 
       ''
+
     }
 
 
@@ -3473,7 +3869,9 @@ function openReader(id) {
 
 
     <div class="reader-body">
-      ${formatContent(a.content || '')}
+      ${formatContent(
+        a.content || ''
+      )}
     </div>
 
 
@@ -3511,34 +3909,91 @@ function openReader(id) {
       :
 
       ''
+
     }
 
   `;
 
 
-  /*
-     NOVO:
-     tukaj se ustvari zgornji meni kategorij.
-  */
+  /* POSODOBI DATUM */
+
+  const mainDate =
+    document.getElementById(
+      'currentDate'
+    );
+
+  const readerDate =
+    document.getElementById(
+      'readerCurrentDate'
+    );
+
+  if (
+    mainDate &&
+    readerDate
+  ) {
+
+    readerDate.textContent =
+      mainDate.textContent;
+
+  } else {
+
+    setDate();
+
+  }
+
+
+  /* POSODOBI ADMIN */
+
+  updateReaderAdminUI();
+
+
+  /* POSODOBI KATEGORIJE */
 
   renderReaderNav();
 
 
-  /*
-     Odpre čitalnik.
-  */
+  /* ODPRI ČITALNIK */
 
-  document
-    .getElementById('readerOverlay')
-    .classList.add('open');
+  const overlay =
+    document.getElementById(
+      'readerOverlay'
+    );
+
+  overlay.classList.add('open');
 
 
-  /*
-     Prepreči drsenje glavne strani
-     v ozadju.
-  */
+  /* PREPREČI DRSENJE OZADJA */
 
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow =
+    'hidden';
+
+
+  /* VEDNO ZAČNI NA VRHU ČLANKA */
+
+  overlay.scrollTop = 0;
+
+
+  /* PRENOS ISKANJA V ČITALNIK */
+
+  const mainSearch =
+    document.getElementById(
+      'searchInput'
+    );
+
+  const readerSearch =
+    document.getElementById(
+      'readerSearchInput'
+    );
+
+  if (
+    mainSearch &&
+    readerSearch
+  ) {
+
+    readerSearch.value =
+      mainSearch.value;
+
+  }
 
 }
 
@@ -3547,12 +4002,19 @@ function openReader(id) {
 
 function closeReader() {
 
-  document
-    .getElementById('readerOverlay')
-    .classList.remove('open');
+  const overlay =
+    document.getElementById(
+      'readerOverlay'
+    );
 
 
-  document.body.style.overflow = '';
+  overlay.classList.remove(
+    'open'
+  );
+
+
+  document.body.style.overflow =
+    '';
 
 }
 
@@ -3565,7 +4027,9 @@ function openArticleEditor(id = null) {
 
 
   const sel =
-    document.getElementById('articleCategory');
+    document.getElementById(
+      'articleCategory'
+    );
 
 
   sel.innerHTML =
@@ -3588,40 +4052,71 @@ function openArticleEditor(id = null) {
     if (!a) return;
 
 
-    document.getElementById('editorTitle')
-      .textContent = 'Uredi zapis';
+    document
+      .getElementById('editorTitle')
+      .textContent =
+        'Uredi zapis';
 
-    document.getElementById('editingId')
-      .value = id;
 
-    document.getElementById('articleTitle')
-      .value = a.title;
+    document
+      .getElementById('editingId')
+      .value =
+        id;
 
-    document.getElementById('articleCategory')
-      .value = a.category;
 
-    document.getElementById('articleAuthor')
-      .value = a.author || '';
+    document
+      .getElementById('articleTitle')
+      .value =
+        a.title;
 
-    document.getElementById('articleExcerpt')
-      .value = a.excerpt || '';
 
-    document.getElementById('articleContent')
-      .value = a.content || '';
+    document
+      .getElementById('articleCategory')
+      .value =
+        a.category;
 
-    document.getElementById('articleImage')
-      .value = a.image || '';
 
-    document.getElementById('btnSaveArticle')
-      .textContent = 'Shrani spremembe';
+    document
+      .getElementById('articleAuthor')
+      .value =
+        a.author || '';
+
+
+    document
+      .getElementById('articleExcerpt')
+      .value =
+        a.excerpt || '';
+
+
+    document
+      .getElementById('articleContent')
+      .value =
+        a.content || '';
+
+
+    document
+      .getElementById('articleImage')
+      .value =
+        a.image || '';
+
+
+    document
+      .getElementById('btnSaveArticle')
+      .textContent =
+        'Shrani spremembe';
 
   } else {
 
-    document.getElementById('editorTitle')
-      .textContent = 'Nov zapis';
+    document
+      .getElementById('editorTitle')
+      .textContent =
+        'Nov zapis';
 
-    document.getElementById('editingId')
-      .value = '';
+
+    document
+      .getElementById('editingId')
+      .value =
+        '';
 
 
     [
@@ -3632,18 +4127,24 @@ function openArticleEditor(id = null) {
       'articleImage'
     ].forEach(id => {
 
-      document.getElementById(id).value = '';
+      document
+        .getElementById(id)
+        .value = '';
 
     });
 
 
-    document.getElementById('btnSaveArticle')
-      .textContent = 'Objavi zapis';
+    document
+      .getElementById('btnSaveArticle')
+      .textContent =
+        'Objavi zapis';
 
   }
 
 
-  openModal('editorModal');
+  openModal(
+    'editorModal'
+  );
 
 }
 
@@ -3654,14 +4155,18 @@ async function saveArticle() {
 
   const title =
     document
-      .getElementById('articleTitle')
+      .getElementById(
+        'articleTitle'
+      )
       .value
       .trim();
 
 
   const content =
     document
-      .getElementById('articleContent')
+      .getElementById(
+        'articleContent'
+      )
       .value
       .trim();
 
@@ -3691,12 +4196,16 @@ async function saveArticle() {
 
 
   const btn =
-    document.getElementById('btnSaveArticle');
+    document.getElementById(
+      'btnSaveArticle'
+    );
 
 
   const editingId =
     document
-      .getElementById('editingId')
+      .getElementById(
+        'editingId'
+      )
       .value;
 
 
@@ -3731,19 +4240,26 @@ async function saveArticle() {
 
     category:
       document
-        .getElementById('articleCategory')
+        .getElementById(
+          'articleCategory'
+        )
         .value,
 
     author:
       document
-        .getElementById('articleAuthor')
+        .getElementById(
+          'articleAuthor'
+        )
         .value
         .trim()
-      || 'Uredništvo',
+      ||
+      'Uredništvo',
 
     excerpt:
       document
-        .getElementById('articleExcerpt')
+        .getElementById(
+          'articleExcerpt'
+        )
         .value
         .trim(),
 
@@ -3751,7 +4267,9 @@ async function saveArticle() {
 
     image:
       document
-        .getElementById('articleImage')
+        .getElementById(
+          'articleImage'
+        )
         .value
         .trim(),
 
@@ -3832,7 +4350,9 @@ async function saveArticle() {
     origText;
 
 
-  closeModal('editorModal');
+  closeModal(
+    'editorModal'
+  );
 
 
   renderHero();
@@ -3867,46 +4387,53 @@ async function saveArticle() {
 
 function confirmDelete(id) {
 
-  openModal('confirmModal');
+  openModal(
+    'confirmModal'
+  );
 
 
   document
-    .getElementById('btnConfirmDelete')
-    .onclick = async () => {
+    .getElementById(
+      'btnConfirmDelete'
+    )
+    .onclick =
+      async () => {
 
-      STATE.articles =
-        STATE.articles.filter(
-          a =>
-            a.id !== id
+        STATE.articles =
+          STATE.articles.filter(
+            a =>
+              a.id !== id
+          );
+
+
+        saveLocalState();
+
+
+        try {
+
+          await saveToGitHub();
+
+        } catch(e) {}
+
+
+        closeModal(
+          'confirmModal'
         );
 
 
-      saveLocalState();
+        renderHero();
+
+        renderArticles();
+
+        renderSidebar();
 
 
-      try {
+        toast(
+          'Zapis izbrisan.',
+          'success'
+        );
 
-        await saveToGitHub();
-
-      } catch(e) {}
-
-
-      closeModal('confirmModal');
-
-
-      renderHero();
-
-      renderArticles();
-
-      renderSidebar();
-
-
-      toast(
-        'Zapis izbrisan.',
-        'success'
-      );
-
-    };
+      };
 
 }
 
@@ -3917,7 +4444,9 @@ function checkAdminLogin() {
 
   const pw =
     document
-      .getElementById('adminPassword')
+      .getElementById(
+        'adminPassword'
+      )
       .value;
 
 
@@ -3929,41 +4458,59 @@ function checkAdminLogin() {
     STATE.isAdmin = true;
 
 
-    closeModal('loginModal');
+    closeModal(
+      'loginModal'
+    );
 
 
     document
-      .getElementById('adminBanner')
-      .classList.add('visible');
+      .getElementById(
+        'adminBanner'
+      )
+      .classList
+      .add('visible');
 
 
     document
-      .getElementById('btnNewArticle')
+      .getElementById(
+        'btnNewArticle'
+      )
       .style.display =
-      'inline-flex';
+        'inline-flex';
 
 
     document
-      .getElementById('btnSettings')
+      .getElementById(
+        'btnSettings'
+      )
       .style.display =
-      'inline-block';
+        'inline-block';
 
 
     document
-      .getElementById('btnAdminToggle')
+      .getElementById(
+        'btnAdminToggle'
+      )
       .textContent =
-      'Odjava';
+        'Odjava';
 
 
     document
-      .getElementById('btnAdminToggle')
+      .getElementById(
+        'btnAdminToggle'
+      )
       .onclick =
-      adminLogout;
+        adminLogout;
 
 
     document
-      .getElementById('adminPassword')
+      .getElementById(
+        'adminPassword'
+      )
       .value = '';
+
+
+    updateReaderAdminUI();
 
 
     renderArticles();
@@ -3992,32 +4539,49 @@ function adminLogout() {
 
 
   document
-    .getElementById('adminBanner')
-    .classList.remove('visible');
+    .getElementById(
+      'adminBanner'
+    )
+    .classList
+    .remove('visible');
 
 
   document
-    .getElementById('btnNewArticle')
+    .getElementById(
+      'btnNewArticle'
+    )
     .style.display =
-    'none';
+      'none';
 
 
   document
-    .getElementById('btnSettings')
+    .getElementById(
+      'btnSettings'
+    )
     .style.display =
-    'none';
+      'none';
 
 
   document
-    .getElementById('btnAdminToggle')
+    .getElementById(
+      'btnAdminToggle'
+    )
     .textContent =
-    'Urednički dostop';
+      'Urednički dostop';
 
 
   document
-    .getElementById('btnAdminToggle')
+    .getElementById(
+      'btnAdminToggle'
+    )
     .onclick =
-    () => openModal('loginModal');
+      () =>
+        openModal(
+          'loginModal'
+        );
+
+
+  updateReaderAdminUI();
 
 
   renderArticles();
@@ -4039,26 +4603,48 @@ function openSettings() {
     STATE.settings;
 
 
-  document.getElementById('ghToken').value =
-    s.ghToken || '';
+  document
+    .getElementById(
+      'ghToken'
+    ).value =
+      s.ghToken || '';
 
-  document.getElementById('ghOwner').value =
-    s.ghOwner || '';
 
-  document.getElementById('ghRepo').value =
-    s.ghRepo || '';
+  document
+    .getElementById(
+      'ghOwner'
+    ).value =
+      s.ghOwner || '';
 
-  document.getElementById('ghBranch').value =
-    s.ghBranch || 'main';
 
-  document.getElementById('ghFilePath').value =
-    s.ghFilePath || 'articles.json';
+  document
+    .getElementById(
+      'ghRepo'
+    ).value =
+      s.ghRepo || '';
+
+
+  document
+    .getElementById(
+      'ghBranch'
+    ).value =
+      s.ghBranch || 'main';
+
+
+  document
+    .getElementById(
+      'ghFilePath'
+    ).value =
+      s.ghFilePath ||
+      'articles.json';
 
 
   renderRubrikaList();
 
 
-  openModal('settingsModal');
+  openModal(
+    'settingsModal'
+  );
 
 }
 
@@ -4067,28 +4653,36 @@ function saveSettings() {
 
   STATE.settings.ghToken =
     document
-      .getElementById('ghToken')
+      .getElementById(
+        'ghToken'
+      )
       .value
       .trim();
 
 
   STATE.settings.ghOwner =
     document
-      .getElementById('ghOwner')
+      .getElementById(
+        'ghOwner'
+      )
       .value
       .trim();
 
 
   STATE.settings.ghRepo =
     document
-      .getElementById('ghRepo')
+      .getElementById(
+        'ghRepo'
+      )
       .value
       .trim();
 
 
   STATE.settings.ghBranch =
     document
-      .getElementById('ghBranch')
+      .getElementById(
+        'ghBranch'
+      )
       .value
       .trim()
     ||
@@ -4097,7 +4691,9 @@ function saveSettings() {
 
   STATE.settings.ghFilePath =
     document
-      .getElementById('ghFilePath')
+      .getElementById(
+        'ghFilePath'
+      )
       .value
       .trim()
     ||
@@ -4119,7 +4715,9 @@ function changePassword() {
 
   const p =
     document
-      .getElementById('newAdminPass')
+      .getElementById(
+        'newAdminPass'
+      )
       .value
       .trim();
 
@@ -4144,7 +4742,9 @@ function changePassword() {
 
 
   document
-    .getElementById('newAdminPass')
+    .getElementById(
+      'newAdminPass'
+    )
     .value = '';
 
 
@@ -4224,11 +4824,14 @@ async function testConnection() {
 function renderRubrikaList() {
 
   document
-    .getElementById('rubrikaList')
+    .getElementById(
+      'rubrikaList'
+    )
     .innerHTML =
 
     STATE.categories
-      .map((c,i) => `
+      .map(
+        (c,i) => `
 
         <div class="rubrika-item">
 
@@ -4245,7 +4848,8 @@ function renderRubrikaList() {
 
         </div>
 
-      `)
+      `
+      )
       .join('');
 
 }
@@ -4255,7 +4859,9 @@ function addRubrika() {
 
   const inp =
     document
-      .getElementById('newRubrikaInput');
+      .getElementById(
+        'newRubrikaInput'
+      );
 
 
   const name =
@@ -4277,7 +4883,9 @@ function addRubrika() {
   }
 
 
-  STATE.categories.push(name);
+  STATE.categories.push(
+    name
+  );
 
 
   saveLocalState();
@@ -4289,12 +4897,6 @@ function addRubrika() {
   renderRubrikaList();
 
   renderNav();
-
-
-  /*
-     Osvežimo tudi meni v čitalniku,
-     če je trenutno odprt.
-  */
 
   renderReaderNav();
 
@@ -4341,25 +4943,31 @@ function deleteRubrika(i) {
 
 function setupSearch() {
 
+  const input =
+    document.getElementById(
+      'searchInput'
+    );
+
+  if (!input) return;
+
+
   let t;
 
 
-  document
-    .getElementById('searchInput')
-    .addEventListener(
-      'input',
-      () => {
+  input.addEventListener(
+    'input',
+    () => {
 
-        clearTimeout(t);
+      clearTimeout(t);
 
-        t =
-          setTimeout(
-            renderArticles,
-            250
-          );
+      t =
+        setTimeout(
+          renderArticles,
+          250
+        );
 
-      }
-    );
+    }
+  );
 
 }
 
@@ -4394,12 +5002,15 @@ function toast(
 ) {
 
   const c =
-    document
-      .getElementById('toastContainer');
+    document.getElementById(
+      'toastContainer'
+    );
 
 
   const t =
-    document.createElement('div');
+    document.createElement(
+      'div'
+    );
 
 
   t.className =
