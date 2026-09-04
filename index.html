@@ -1504,8 +1504,11 @@ button {
   <div class="header-brand">
 
     <div class="header-left">
+  <button class="reader-back" onclick="closeReader()">
+    ← Nazaj na naslovnico
+  </button>
 
-      <div class="search-bar">
+  <div class="search-bar">
 
         <svg width="13" height="13" fill="none" viewBox="0 0 24 24"
              stroke="rgba(245,230,184,.5)" stroke-width="2">
@@ -1683,7 +1686,7 @@ button {
               id="readerAdminToggle"
               onclick="readerAdminAction()"
             >
-              Urednički dostop
+              Uredniški dostop
             </button>
 
           </div>
@@ -1803,19 +1806,7 @@ button {
 
       <!-- NAZAJ -->
 
-      <div class="reader-back-row">
-
-        <button
-          class="reader-back"
-          onclick="closeReader()"
-        >
-          ← Nazaj na naslovnico
-        </button>
-
-
-        <div id="readerAdminActions"></div>
-
-      </div>
+      
 
     </div>
 
