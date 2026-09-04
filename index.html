@@ -4,11 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vedski Časopis — Modrost Starih Ved</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
+
 /* ─── RESET ─────────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 :root {
   --burgundy:   #4A1010;
   --burgundy2:  #6B1A1A;
@@ -27,12 +36,18 @@
   --shadow:     0 2px 16px rgba(74,16,16,.10);
   --shadow-lg:  0 8px 40px rgba(74,16,16,.18);
   --radius:     4px;
+
   --font-head:  'Cormorant Garamond', 'Palatino Linotype', Georgia, serif;
   --font-body:  'EB Garamond', Georgia, serif;
   --font-deco:  'Cinzel', Georgia, serif;
+
   --transition: .18s ease;
 }
-html { scroll-behavior: smooth; }
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-body);
   color: var(--text);
@@ -40,17 +55,34 @@ body {
   font-size: 17px;
   line-height: 1.65;
 }
-img { max-width: 100%; display: block; }
-a { color: inherit; text-decoration: none; }
-button { font-family: var(--font-body); cursor: pointer; border: none; background: none; }
 
-/* ─── ORNAMENT SVG ──────────────────────────────────────── */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+
+/* ─── ORNAMENT ───────────────────────────────────────────── */
+
 .om-symbol {
   display: inline-block;
   color: var(--gold);
   font-size: 1.2em;
   line-height: 1;
 }
+
 .divider-ornament {
   text-align: center;
   color: var(--gold);
@@ -60,7 +92,9 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
   opacity: .7;
 }
 
-/* ─── UTILITY ───────────────────────────────────────────── */
+
+/* ─── UTILITY ────────────────────────────────────────────── */
+
 .badge {
   display: inline-block;
   font-family: var(--font-deco);
@@ -72,37 +106,67 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
   background: transparent;
   text-transform: uppercase;
 }
+
 .badge.filled {
   background: var(--gold);
   color: var(--brown);
 }
+
 .btn {
-  display: inline-flex; align-items: center; gap: 7px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   padding: 9px 22px;
   font-family: var(--font-deco);
-  font-size: 12px; letter-spacing: .08em;
+  font-size: 12px;
+  letter-spacing: .08em;
   text-transform: uppercase;
   transition: all var(--transition);
   border-radius: var(--radius);
 }
-.btn:active { transform: scale(.97); }
+
+.btn:active {
+  transform: scale(.97);
+}
+
 .btn-primary {
   background: var(--gold);
   color: var(--brown);
   border: 1px solid var(--gold);
 }
-.btn-primary:hover { background: var(--gold-light); }
+
+.btn-primary:hover {
+  background: var(--gold-light);
+}
+
 .btn-outline {
   background: transparent;
   color: var(--gold);
   border: 1px solid var(--gold);
 }
-.btn-outline:hover { background: rgba(201,151,42,.12); }
-.btn-danger { background: var(--burgundy2); color: var(--gold-pale); border: 1px solid var(--burgundy2); }
-.btn-danger:hover { opacity: .85; }
-.btn-sm { padding: 5px 14px; font-size: 11px; }
+
+.btn-outline:hover {
+  background: rgba(201,151,42,.12);
+}
+
+.btn-danger {
+  background: var(--burgundy2);
+  color: var(--gold-pale);
+  border: 1px solid var(--burgundy2);
+}
+
+.btn-danger:hover {
+  opacity: .85;
+}
+
+.btn-sm {
+  padding: 5px 14px;
+  font-size: 11px;
+}
+
 
 /* ─── TOPBAR ─────────────────────────────────────────────── */
+
 .topbar {
   background: var(--brown);
   color: rgba(245,230,184,.55);
@@ -112,29 +176,47 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
   padding: 7px 0;
   border-bottom: 1px solid rgba(201,151,42,.3);
 }
+
 .topbar-inner {
-  max-width: 1280px; margin: 0 auto; padding: 0 24px;
-  display: flex; justify-content: space-between; align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
 .topbar-actions button {
   color: rgba(245,230,184,.6);
   font-family: var(--font-deco);
-  font-size: 11px; letter-spacing: .06em;
+  font-size: 11px;
+  letter-spacing: .06em;
   padding: 2px 0;
   border-bottom: 1px solid transparent;
   transition: all var(--transition);
 }
-.topbar-actions button:hover { color: var(--gold-light); border-color: var(--gold); }
-.topbar-actions { display: flex; gap: 20px; }
+
+.topbar-actions button:hover {
+  color: var(--gold-light);
+  border-color: var(--gold);
+}
+
+.topbar-actions {
+  display: flex;
+  gap: 20px;
+}
+
 
 /* ─── HEADER ─────────────────────────────────────────────── */
+
 .site-header {
   background: var(--burgundy);
-  position: sticky; top: 0; z-index: 100;
+  position: sticky;
+  top: 0;
+  z-index: 100;
   box-shadow: 0 4px 24px rgba(44,24,16,.35);
 }
 
-/* Mandala border top */
 .header-mandala-bar {
   height: 5px;
   background: repeating-linear-gradient(
@@ -148,12 +230,28 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
 }
 
 .header-brand {
-  max-width: 1280px; margin: 0 auto; padding: 0 24px;
-  display: flex; align-items: center; justify-content: space-between;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   height: 76px;
 }
-.brand-center { text-align: center; flex: 1; }
-.brand-om { font-size: 13px; color: var(--gold); letter-spacing: .2em; font-family: var(--font-deco); margin-bottom: 2px; }
+
+.brand-center {
+  text-align: center;
+  flex: 1;
+}
+
+.brand-om {
+  font-size: 13px;
+  color: var(--gold);
+  letter-spacing: .2em;
+  font-family: var(--font-deco);
+  margin-bottom: 2px;
+}
+
 .brand-name {
   font-family: var(--font-deco);
   font-size: 30px;
@@ -163,7 +261,11 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
   text-transform: uppercase;
   line-height: 1;
 }
-.brand-name span { color: var(--gold); }
+
+.brand-name span {
+  color: var(--gold);
+}
+
 .brand-tagline {
   font-family: var(--font-head);
   font-size: 12px;
@@ -172,6 +274,7 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
   letter-spacing: .1em;
   margin-top: 3px;
 }
+
 .brand-divider {
   color: var(--gold);
   font-size: 20px;
@@ -179,44 +282,78 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
   opacity: .6;
   margin-top: 2px;
 }
-.header-right, .header-left {
-  display: flex; align-items: center; gap: 10px;
+
+.header-right,
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   min-width: 160px;
 }
-.header-left { justify-content: flex-start; }
-.header-right { justify-content: flex-end; }
 
-/* Search */
+.header-left {
+  justify-content: flex-start;
+}
+
+.header-right {
+  justify-content: flex-end;
+}
+
+
+/* ─── SEARCH ─────────────────────────────────────────────── */
+
 .search-bar {
-  display: flex; align-items: center;
+  display: flex;
+  align-items: center;
   background: rgba(245,230,184,.08);
   border: 1px solid rgba(201,151,42,.3);
   border-radius: var(--radius);
-  padding: 6px 12px; gap: 8px;
+  padding: 6px 12px;
+  gap: 8px;
 }
+
 .search-bar input {
-  background: none; border: none; outline: none;
-  color: var(--gold-pale); font-family: var(--font-body);
-  font-size: 13px; width: 140px;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--gold-pale);
+  font-family: var(--font-body);
+  font-size: 13px;
+  width: 140px;
 }
-.search-bar input::placeholder { color: rgba(245,230,184,.3); }
+
+.search-bar input::placeholder {
+  color: rgba(245,230,184,.3);
+}
+
 
 /* ─── NAV ───────────────────────────────────────────────── */
+
 .site-nav {
   background: var(--brown);
   border-top: 1px solid rgba(201,151,42,.2);
 }
+
 .nav-inner {
-  max-width: 1280px; margin: 0 auto; padding: 0 24px;
-  display: flex; align-items: center;
-  overflow-x: auto; scrollbar-width: none;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  scrollbar-width: none;
 }
-.nav-inner::-webkit-scrollbar { display: none; }
+
+.nav-inner::-webkit-scrollbar {
+  display: none;
+}
+
 .nav-item {
   flex-shrink: 0;
   padding: 11px 16px;
   font-family: var(--font-deco);
-  font-size: 11.5px; letter-spacing: .08em;
+  font-size: 11.5px;
+  letter-spacing: .08em;
   text-transform: uppercase;
   color: rgba(245,230,184,.55);
   border-bottom: 2px solid transparent;
@@ -224,38 +361,62 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
   transition: all var(--transition);
   white-space: nowrap;
 }
-.nav-item:hover { color: var(--gold-light); }
-.nav-item.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+.nav-item:hover {
+  color: var(--gold-light);
+}
+
+.nav-item.active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
 
 /* ─── ADMIN BANNER ──────────────────────────────────────── */
+
 .admin-mode-banner {
   background: var(--gold);
   color: var(--brown);
   text-align: center;
   font-family: var(--font-deco);
-  font-size: 11px; letter-spacing: .1em;
+  font-size: 11px;
+  letter-spacing: .1em;
   text-transform: uppercase;
   padding: 7px;
   display: none;
 }
-.admin-mode-banner.visible { display: block; }
+
+.admin-mode-banner.visible {
+  display: block;
+}
+
 
 /* ─── HERO ──────────────────────────────────────────────── */
+
 .hero-section {
-  max-width: 1280px; margin: 0 auto; padding: 32px 24px 0;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px 24px 0;
 }
+
 .hero-ornament {
   text-align: center;
   font-family: var(--font-deco);
-  font-size: 11px; letter-spacing: .2em;
+  font-size: 11px;
+  letter-spacing: .2em;
   color: var(--gold);
   text-transform: uppercase;
   margin-bottom: 16px;
-  display: flex; align-items: center; gap: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
-.hero-ornament::before, .hero-ornament::after {
+
+.hero-ornament::before,
+.hero-ornament::after {
   content: '';
-  flex: 1; height: 1px;
+  flex: 1;
+  height: 1px;
   background: linear-gradient(to right, transparent, var(--gold), transparent);
 }
 
@@ -268,6 +429,7 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
   border: 1px solid var(--border2);
   overflow: hidden;
 }
+
 .hero-main {
   grid-row: span 2;
   position: relative;
@@ -276,19 +438,34 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
   cursor: pointer;
   overflow: hidden;
 }
+
 .hero-main img {
-  width: 100%; height: 100%; object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   opacity: .65;
   filter: sepia(20%);
   transition: transform .5s ease, opacity .3s;
 }
-.hero-main:hover img { transform: scale(1.03); opacity: .55; }
+
+.hero-main:hover img {
+  transform: scale(1.03);
+  opacity: .55;
+}
+
 .hero-main-content {
-  position: absolute; bottom: 0; left: 0; right: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   padding: 32px;
   background: linear-gradient(to top, rgba(44,24,16,.97) 40%, transparent);
 }
-.hero-main-content .badge { margin-bottom: 12px; }
+
+.hero-main-content .badge {
+  margin-bottom: 12px;
+}
+
 .hero-main-content h2 {
   font-family: var(--font-head);
   font-size: clamp(24px, 3vw, 36px);
@@ -298,79 +475,125 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
   line-height: 1.2;
   margin-bottom: 10px;
 }
+
 .hero-main-content p {
   color: rgba(245,230,184,.65);
   font-size: 15px;
-  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
+
 .hero-meta {
-  display: flex; align-items: center; gap: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   margin-top: 14px;
-  color: rgba(201,151,42,.7); font-size: 13px;
-  font-family: var(--font-deco); letter-spacing: .04em;
+  color: rgba(201,151,42,.7);
+  font-size: 13px;
+  font-family: var(--font-deco);
+  letter-spacing: .04em;
 }
+
 .hero-side {
   background: var(--cream2);
   padding: 22px;
-  display: flex; flex-direction: column; justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   cursor: pointer;
   border-left: 3px solid var(--gold);
   transition: background var(--transition);
 }
-.hero-side:hover { background: var(--gold-pale); }
-.hero-side .badge { margin-bottom: 10px; }
+
+.hero-side:hover {
+  background: var(--gold-pale);
+}
+
+.hero-side .badge {
+  margin-bottom: 10px;
+}
+
 .hero-side h3 {
   font-family: var(--font-head);
-  font-size: 18px; font-weight: 600;
+  font-size: 18px;
+  font-weight: 600;
   font-style: italic;
-  line-height: 1.3; color: var(--brown);
+  line-height: 1.3;
+  color: var(--brown);
   margin-bottom: 8px;
 }
-.hero-side p { font-size: 13.5px; color: var(--gray); }
+
+.hero-side p {
+  font-size: 13.5px;
+  color: var(--gray);
+}
+
 .hero-side-meta {
-  font-size: 12px; color: var(--gray);
-  font-family: var(--font-deco); letter-spacing: .04em;
+  font-size: 12px;
+  color: var(--gray);
+  font-family: var(--font-deco);
+  letter-spacing: .04em;
   margin-top: 10px;
 }
 
+
 /* ─── CONTENT WRAPPER ───────────────────────────────────── */
+
 .content-wrapper {
-  max-width: 1280px; margin: 0 auto;
+  max-width: 1280px;
+  margin: 0 auto;
   padding: 32px 24px 60px;
   display: grid;
   grid-template-columns: 1fr 300px;
   gap: 36px;
 }
 
+
 /* ─── SECTION HEADER ────────────────────────────────────── */
+
 .section-header {
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 24px;
   padding-bottom: 12px;
   border-bottom: 1px solid var(--border2);
   position: relative;
 }
+
 .section-header::after {
   content: '';
-  position: absolute; bottom: -3px; left: 0;
-  width: 60px; height: 2px;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 60px;
+  height: 2px;
   background: var(--gold);
 }
+
 .section-header h2 {
   font-family: var(--font-deco);
-  font-size: 18px; font-weight: 600;
-  letter-spacing: .1em; text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
   color: var(--burgundy);
 }
 
+
 /* ─── ARTICLE GRID ──────────────────────────────────────── */
+
 .articles-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 22px;
 }
 
+
 /* ─── ARTICLE CARD ──────────────────────────────────────── */
+
 .article-card {
   background: var(--white);
   border: 1px solid var(--border);
@@ -378,83 +601,147 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
   overflow: hidden;
   box-shadow: var(--shadow);
   transition: box-shadow var(--transition), transform var(--transition);
-  display: flex; flex-direction: column;
+  display: flex;
+  flex-direction: column;
   cursor: pointer;
 }
+
 .article-card:hover {
   box-shadow: var(--shadow-lg);
   transform: translateY(-2px);
 }
+
 .card-image {
   height: 185px;
   background: var(--cream2);
-  overflow: hidden; position: relative;
+  overflow: hidden;
+  position: relative;
 }
+
 .card-image img {
-  width: 100%; height: 100%; object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   filter: sepia(10%);
   transition: transform .4s ease;
 }
-.article-card:hover .card-image img { transform: scale(1.05); }
-.card-image-placeholder {
-  width: 100%; height: 100%;
-  display: flex; align-items: center; justify-content: center;
-  background: linear-gradient(135deg, var(--burgundy) 0%, var(--brown) 100%);
-  flex-direction: column; gap: 6px;
+
+.article-card:hover .card-image img {
+  transform: scale(1.05);
 }
-.card-image-placeholder svg { opacity: .2; }
-.card-body { padding: 18px 20px 20px; flex: 1; display: flex; flex-direction: column; }
+
+.card-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--burgundy) 0%, var(--brown) 100%);
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-image-placeholder svg {
+  opacity: .2;
+}
+
+.card-body {
+  padding: 18px 20px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 .card-category {
   font-family: var(--font-deco);
-  font-size: 10px; font-weight: 600;
-  letter-spacing: .12em; text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 10px;
-  display: flex; align-items: center; gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
+
 .card-category::before {
   content: '✦';
   font-size: 8px;
 }
+
 .card-title {
   font-family: var(--font-head);
-  font-size: 20px; font-weight: 600;
+  font-size: 20px;
+  font-weight: 600;
   font-style: italic;
   line-height: 1.25;
   color: var(--brown);
   margin-bottom: 10px;
   flex: 1;
 }
+
 .card-excerpt {
-  font-size: 14px; color: var(--gray);
+  font-size: 14px;
+  color: var(--gray);
   line-height: 1.6;
-  display: -webkit-box; -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical; overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   margin-bottom: 16px;
 }
+
 .card-footer {
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding-top: 12px;
   border-top: 1px solid var(--border);
-  font-size: 12px; color: var(--gray);
-  font-family: var(--font-deco); letter-spacing: .04em;
+  font-size: 12px;
+  color: var(--gray);
+  font-family: var(--font-deco);
+  letter-spacing: .04em;
 }
-.card-author { display: flex; align-items: center; gap: 7px; }
+
+.card-author {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
 .card-avatar {
-  width: 26px; height: 26px; border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
   background: var(--burgundy);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 11px; color: var(--gold); font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: var(--gold);
+  font-weight: 700;
   border: 1px solid var(--gold);
   font-family: var(--font-deco);
 }
+
 .card-admin-actions {
-  display: flex; gap: 6px; margin-top: 12px; padding-top: 12px;
+  display: flex;
+  gap: 6px;
+  margin-top: 12px;
+  padding-top: 12px;
   border-top: 1px dashed var(--border);
 }
 
+
 /* ─── SIDEBAR ───────────────────────────────────────────── */
-.sidebar { display: flex; flex-direction: column; gap: 24px; }
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
 .sidebar-widget {
   background: var(--white);
   border: 1px solid var(--border);
@@ -462,40 +749,74 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
   padding: 22px;
   box-shadow: var(--shadow);
 }
+
 .widget-title {
   font-family: var(--font-deco);
-  font-size: 13px; font-weight: 600;
-  letter-spacing: .12em; text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
   color: var(--burgundy);
   margin-bottom: 16px;
   padding-bottom: 10px;
   border-bottom: 1px solid var(--border);
-  display: flex; align-items: center; gap: 8px;
-}
-.widget-title::before { content: '✦'; color: var(--gold); font-size: 10px; }
-.trending-item {
-  display: flex; gap: 12px; align-items: flex-start;
-  padding: 10px 0; border-bottom: 1px solid var(--border);
-  cursor: pointer; transition: opacity var(--transition);
-}
-.trending-item:last-child { border-bottom: none; }
-.trending-item:hover { opacity: .72; }
-.trending-num {
-  font-family: var(--font-deco);
-  font-size: 20px; font-weight: 600;
-  color: var(--border2); line-height: 1; min-width: 24px;
-}
-.trending-text h4 {
-  font-family: var(--font-head);
-  font-size: 15px; font-style: italic;
-  line-height: 1.3; color: var(--brown); margin-bottom: 3px;
-}
-.trending-text span {
-  font-family: var(--font-deco);
-  font-size: 11px; color: var(--gray); letter-spacing: .04em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-/* ─── VEDIC QUOTE WIDGET ────────────────────────────────── */
+.widget-title::before {
+  content: '✦';
+  color: var(--gold);
+  font-size: 10px;
+}
+
+.trending-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: opacity var(--transition);
+}
+
+.trending-item:last-child {
+  border-bottom: none;
+}
+
+.trending-item:hover {
+  opacity: .72;
+}
+
+.trending-num {
+  font-family: var(--font-deco);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--border2);
+  line-height: 1;
+  min-width: 24px;
+}
+
+.trending-text h4 {
+  font-family: var(--font-head);
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.3;
+  color: var(--brown);
+  margin-bottom: 3px;
+}
+
+.trending-text span {
+  font-family: var(--font-deco);
+  font-size: 11px;
+  color: var(--gray);
+  letter-spacing: .04em;
+}
+
+
+/* ─── VEDIC QUOTE ───────────────────────────────────────── */
+
 .quote-widget {
   background: var(--burgundy);
   border: 1px solid var(--border2);
@@ -504,154 +825,335 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
   position: relative;
   overflow: hidden;
 }
+
 .quote-widget::before {
   content: '❋';
-  position: absolute; top: -10px; left: 50%;
+  position: absolute;
+  top: -10px;
+  left: 50%;
   transform: translateX(-50%);
-  font-size: 30px; color: var(--gold); opacity: .15;
+  font-size: 30px;
+  color: var(--gold);
+  opacity: .15;
 }
+
 .quote-text {
   font-family: var(--font-head);
-  font-size: 17px; font-style: italic;
+  font-size: 17px;
+  font-style: italic;
   color: var(--gold-pale);
   line-height: 1.65;
   margin-bottom: 12px;
 }
+
 .quote-source {
   font-family: var(--font-deco);
-  font-size: 11px; letter-spacing: .1em;
+  font-size: 11px;
+  letter-spacing: .1em;
   color: var(--gold);
   text-transform: uppercase;
 }
 
+
 /* ─── MODAL ─────────────────────────────────────────────── */
+
 .modal-overlay {
-  position: fixed; inset: 0; z-index: 500;
+  position: fixed;
+  inset: 0;
+  z-index: 500;
   background: rgba(44,24,16,.7);
   backdrop-filter: blur(4px);
-  display: flex; align-items: flex-start; justify-content: center;
-  padding: 24px; overflow-y: auto;
-  opacity: 0; pointer-events: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 24px;
+  overflow-y: auto;
+  opacity: 0;
+  pointer-events: none;
   transition: opacity .2s ease;
 }
-.modal-overlay.open { opacity: 1; pointer-events: all; }
+
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
 .modal {
   background: var(--cream);
   border: 1px solid var(--border2);
   border-top: 4px solid var(--gold);
-  width: 100%; max-width: 680px;
+  width: 100%;
+  max-width: 680px;
   box-shadow: 0 24px 80px rgba(44,24,16,.35);
   margin: auto;
   transform: translateY(16px);
   transition: transform .22s ease;
 }
-.modal-overlay.open .modal { transform: translateY(0); }
+
+.modal-overlay.open .modal {
+  transform: translateY(0);
+}
+
 .modal-header {
   padding: 24px 28px 18px;
   border-bottom: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background: var(--cream2);
 }
+
 .modal-header h3 {
   font-family: var(--font-deco);
-  font-size: 18px; letter-spacing: .08em;
-  text-transform: uppercase; color: var(--burgundy);
+  font-size: 18px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--burgundy);
 }
+
 .modal-close {
-  width: 32px; height: 32px;
-  background: transparent; color: var(--gray);
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  color: var(--gray);
   font-size: 20px;
   border: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: all var(--transition);
 }
-.modal-close:hover { background: var(--border); color: var(--brown); }
-.modal-body { padding: 24px 28px; }
+
+.modal-close:hover {
+  background: var(--border);
+  color: var(--brown);
+}
+
+.modal-body {
+  padding: 24px 28px;
+}
+
 .modal-footer {
   padding: 18px 28px 24px;
   border-top: 1px solid var(--border);
-  display: flex; justify-content: flex-end; gap: 10px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
   background: var(--cream2);
 }
 
+
 /* ─── FORM ──────────────────────────────────────────────── */
-.form-group { margin-bottom: 18px; }
+
+.form-group {
+  margin-bottom: 18px;
+}
+
 .form-group label {
   display: block;
-  font-family: var(--font-deco); font-size: 11px;
-  letter-spacing: .1em; text-transform: uppercase;
-  color: var(--brown2); margin-bottom: 7px;
+  font-family: var(--font-deco);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--brown2);
+  margin-bottom: 7px;
 }
+
 .form-group input,
 .form-group textarea,
 .form-group select {
-  width: 100%; padding: 10px 14px;
+  width: 100%;
+  padding: 10px 14px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  font-family: var(--font-body); font-size: 15px;
-  color: var(--text); background: var(--white);
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--text);
+  background: var(--white);
   transition: border-color var(--transition);
 }
+
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
-  outline: none; border-color: var(--gold);
+  outline: none;
+  border-color: var(--gold);
   box-shadow: 0 0 0 3px rgba(201,151,42,.12);
 }
-.form-group textarea { resize: vertical; min-height: 120px; line-height: 1.65; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.form-hint {
-  font-size: 12px; color: var(--gray);
-  font-style: italic; margin-top: 5px;
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.65;
 }
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form-hint {
+  font-size: 12px;
+  color: var(--gray);
+  font-style: italic;
+  margin-top: 5px;
+}
+
 
 /* ─── SETTINGS ──────────────────────────────────────────── */
-.settings-section { margin-bottom: 28px; }
-.settings-section h4 {
-  font-family: var(--font-deco);
-  font-size: 13px; letter-spacing: .1em; text-transform: uppercase;
-  color: var(--burgundy);
-  margin-bottom: 14px; padding-bottom: 8px;
-  border-bottom: 1px solid var(--border);
-}
-.rubrika-list { display: flex; flex-direction: column; gap: 8px; }
-.rubrika-item {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 10px 14px;
-  background: var(--cream2); border: 1px solid var(--border);
-  font-family: var(--font-deco); font-size: 12px;
-  letter-spacing: .06em; text-transform: uppercase;
+
+.settings-section {
+  margin-bottom: 28px;
 }
 
+.settings-section h4 {
+  font-family: var(--font-deco);
+  font-size: 13px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--burgundy);
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.rubrika-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rubrika-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: var(--cream2);
+  border: 1px solid var(--border);
+  font-family: var(--font-deco);
+  font-size: 12px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+
 /* ─── ARTICLE READER ────────────────────────────────────── */
+
 .reader-overlay {
-  position: fixed; inset: 0; z-index: 400;
+  position: fixed;
+  inset: 0;
+  z-index: 400;
   background: var(--cream);
   overflow-y: auto;
-  opacity: 0; pointer-events: none;
+
+  opacity: 0;
+  pointer-events: none;
+
   transform: translateY(16px);
   transition: opacity .22s ease, transform .22s ease;
 }
-.reader-overlay.open { opacity: 1; pointer-events: all; transform: translateY(0); }
+
+.reader-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+
+/* STALNI HEADER V ČITALNIKU */
+
 .reader-header {
   background: var(--burgundy);
-  padding: 14px 24px;
-  display: flex; align-items: center; gap: 14px;
-  position: sticky; top: 0; z-index: 10;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
   border-bottom: 2px solid var(--gold);
 }
+
+
+/* GUMB NAZAJ */
+
 .reader-back {
   color: var(--gold-pale);
-  font-family: var(--font-deco); font-size: 11px;
-  letter-spacing: .1em; text-transform: uppercase;
-  display: flex; align-items: center; gap: 6px;
-  padding: 4px 0;
+  font-family: var(--font-deco);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 7px 0;
+  white-space: nowrap;
+
   transition: color var(--transition);
 }
-.reader-back:hover { color: var(--gold); }
-.reader-content {
-  max-width: 900px; margin: 0 auto; padding: 48px 24px 80px;
+
+.reader-back:hover {
+  color: var(--gold);
 }
+
+
+/* KATEGORIJE V ČITALNIKU */
+
+.reader-nav {
+  flex: 1;
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.reader-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.reader-nav .nav-item {
+  flex-shrink: 0;
+
+  padding: 7px 10px;
+
+  font-family: var(--font-deco);
+  font-size: 10px;
+  letter-spacing: .07em;
+
+  color: rgba(245,230,184,.55);
+
+  border-bottom: 2px solid transparent;
+
+  white-space: nowrap;
+}
+
+.reader-nav .nav-item:hover {
+  color: var(--gold-light);
+}
+
+.reader-nav .nav-item.active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+
+/* VSEBINA ČLANKA */
+
+.reader-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
 .reader-ornament {
   text-align: center;
   color: var(--gold);
@@ -660,839 +1162,3367 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
   margin: 24px 0;
   opacity: .6;
 }
+
 .reader-category {
   font-family: var(--font-deco);
-  font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 14px;
-  display: flex; align-items: center; gap: 10px;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-.reader-category::before, .reader-category::after {
-  content: ''; flex: 0 0 30px; height: 1px; background: var(--gold); opacity: .5;
+
+.reader-category::before,
+.reader-category::after {
+  content: '';
+  flex: 0 0 30px;
+  height: 1px;
+  background: var(--gold);
+  opacity: .5;
 }
+
 .reader-title {
   font-family: var(--font-head);
   font-size: clamp(30px, 5vw, 48px);
-  font-weight: 600; font-style: italic;
+  font-weight: 600;
+  font-style: italic;
   line-height: 1.12;
-  color: var(--brown); margin-bottom: 18px;
+  color: var(--brown);
+  margin-bottom: 18px;
   text-align: center;
 }
+
 .reader-meta {
-  display: flex; align-items: center; justify-content: center; gap: 16px;
-  font-size: 13px; color: var(--gray);
-  font-family: var(--font-deco); letter-spacing: .05em;
-  margin-bottom: 28px; padding-bottom: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  font-size: 13px;
+  color: var(--gray);
+  font-family: var(--font-deco);
+  letter-spacing: .05em;
+
+  margin-bottom: 28px;
+  padding-bottom: 22px;
+
   border-bottom: 1px solid var(--border);
 }
+
 .reader-image {
-  width: 100%; max-height: 520px; object-fit: cover;
+  width: 100%;
+  max-height: 520px;
+  object-fit: cover;
+
   margin-bottom: 36px;
+
   filter: sepia(8%);
+
   border: 1px solid var(--border);
 }
+
 .reader-body {
-  font-size: 19px; line-height: 1.8;
+  font-size: 19px;
+  line-height: 1.8;
   color: var(--text);
   font-family: var(--font-body);
 }
-.reader-body p { margin-bottom: 1.5em; }
+
+.reader-body p {
+  margin-bottom: 1.5em;
+}
+
 .reader-admin {
-  display: flex; gap: 10px; margin-top: 36px; padding-top: 20px;
+  display: flex;
+  gap: 10px;
+
+  margin-top: 36px;
+  padding-top: 20px;
+
   border-top: 1px solid var(--border);
 }
 
+
 /* ─── TOAST ─────────────────────────────────────────────── */
+
 .toast-container {
-  position: fixed; bottom: 24px; right: 24px; z-index: 9000;
-  display: flex; flex-direction: column; gap: 10px; pointer-events: none;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9000;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  pointer-events: none;
 }
+
 .toast {
-  background: var(--brown); color: var(--gold-pale);
+  background: var(--brown);
+  color: var(--gold-pale);
+
   padding: 12px 18px;
+
   border: 1px solid var(--gold);
-  font-family: var(--font-deco); font-size: 12px; letter-spacing: .06em;
+
+  font-family: var(--font-deco);
+  font-size: 12px;
+  letter-spacing: .06em;
+
   box-shadow: var(--shadow-lg);
-  display: flex; align-items: center; gap: 10px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
   transform: translateX(120%);
   transition: transform .25s ease;
+
   pointer-events: all;
 }
-.toast.show { transform: translateX(0); }
-.toast.success::before { content: '✦'; color: var(--gold); }
-.toast.error::before { content: '✕'; color: #E07070; }
 
-/* ─── EMPTY STATE ───────────────────────────────────────── */
-.empty-state {
-  text-align: center; padding: 60px 20px; color: var(--gray);
-  grid-column: 1/-1;
+.toast.show {
+  transform: translateX(0);
 }
-.empty-state .empty-icon {
-  font-size: 44px; margin-bottom: 16px; opacity: .3;
+
+.toast.success::before {
+  content: '✦';
   color: var(--gold);
 }
-.empty-state h3 {
-  font-family: var(--font-head); font-style: italic;
-  font-size: 22px; color: var(--brown); margin-bottom: 8px;
+
+.toast.error::before {
+  content: '✕';
+  color: #E07070;
 }
 
+
+/* ─── EMPTY STATE ───────────────────────────────────────── */
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--gray);
+  grid-column: 1/-1;
+}
+
+.empty-state .empty-icon {
+  font-size: 44px;
+  margin-bottom: 16px;
+  opacity: .3;
+  color: var(--gold);
+}
+
+.empty-state h3 {
+  font-family: var(--font-head);
+  font-style: italic;
+  font-size: 22px;
+  color: var(--brown);
+  margin-bottom: 8px;
+}
+
+
 /* ─── FOOTER ─────────────────────────────────────────────── */
+
 .site-footer {
   background: var(--brown);
   padding: 36px 24px 24px;
   text-align: center;
 }
+
 .footer-om {
-  font-size: 28px; color: var(--gold); opacity: .6;
-  margin-bottom: 12px; letter-spacing: 10px;
+  font-size: 28px;
+  color: var(--gold);
+  opacity: .6;
+  margin-bottom: 12px;
+  letter-spacing: 10px;
 }
+
 .footer-name {
   font-family: var(--font-deco);
-  font-size: 18px; letter-spacing: .15em;
-  color: var(--gold-pale); margin-bottom: 6px;
+  font-size: 18px;
+  letter-spacing: .15em;
+  color: var(--gold-pale);
+  margin-bottom: 6px;
 }
+
 .footer-text {
-  font-family: var(--font-body); font-style: italic;
-  font-size: 13px; color: rgba(245,230,184,.4);
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 13px;
+  color: rgba(245,230,184,.4);
 }
+
 .footer-divider {
-  border: none; border-top: 1px solid rgba(201,151,42,.2);
-  margin: 16px auto; max-width: 200px;
+  border: none;
+  border-top: 1px solid rgba(201,151,42,.2);
+  margin: 16px auto;
+  max-width: 200px;
 }
+
 
 /* ─── RESPONSIVE ─────────────────────────────────────────── */
+
 @media (max-width: 900px) {
-  .hero-grid { grid-template-columns: 1fr; }
-  .hero-main { min-height: 300px; }
-  .hero-side { display: none; }
-  .content-wrapper { grid-template-columns: 1fr; }
-  .sidebar { display: none; }
-  .form-row { grid-template-columns: 1fr; }
-  .search-bar { display: none; }
-  .header-left { min-width: auto; }
-  .header-right { min-width: auto; }
-}
-@media (max-width: 600px) {
-  .header-brand { height: 64px; }
-  .brand-name { font-size: 22px; }
-  .hero-section { padding: 16px 14px 0; }
-  .content-wrapper { padding: 18px 14px 40px; }
-  .articles-grid { grid-template-columns: 1fr; }
-  .modal { border-radius: 0; }
-  .modal-overlay { padding: 0; align-items: flex-end; }
-  .reader-content { padding: 32px 16px 60px; }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-main {
+    min-height: 300px;
+  }
+
+  .hero-side {
+    display: none;
+  }
+
+  .content-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .search-bar {
+    display: none;
+  }
+
+  .header-left {
+    min-width: auto;
+  }
+
+  .header-right {
+    min-width: auto;
+  }
 }
 
-@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 600px) {
+
+  .header-brand {
+    height: 64px;
+  }
+
+  .brand-name {
+    font-size: 22px;
+  }
+
+  .hero-section {
+    padding: 16px 14px 0;
+  }
+
+  .content-wrapper {
+    padding: 18px 14px 40px;
+  }
+
+  .articles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal {
+    border-radius: 0;
+  }
+
+  .modal-overlay {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .reader-header {
+    padding: 8px 12px;
+    gap: 8px;
+  }
+
+  .reader-back {
+    font-size: 10px;
+  }
+
+  .reader-nav {
+    gap: 2px;
+  }
+
+  .reader-nav .nav-item {
+    padding: 6px 8px;
+    font-size: 9px;
+  }
+
+  .reader-content {
+    padding: 32px 16px 60px;
+  }
+
+  .reader-meta {
+    flex-wrap: wrap;
+    gap: 8px 12px;
+  }
+}
+
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 </style>
 </head>
+
+
 <body>
 
+
 <div class="toast-container" id="toastContainer"></div>
-<div class="admin-mode-banner" id="adminBanner">✦ &nbsp; Urednički način — prijavljeni ste kot administrator &nbsp; ✦</div>
+
+<div class="admin-mode-banner" id="adminBanner">
+  ✦ &nbsp; Uredniški način — prijavljeni ste kot administrator &nbsp; ✦
+</div>
+
 
 <!-- TOPBAR -->
+
 <div class="topbar">
   <div class="topbar-inner">
+
     <div style="display:flex;align-items:center;gap:10px">
       <span id="currentDate"></span>
       <span style="color:rgba(201,151,42,.4)">✦</span>
       <span>Slovenija</span>
     </div>
+
     <div class="topbar-actions">
       <button id="btnAdminToggle">Urednički dostop</button>
       <button id="btnSettings" style="display:none">Nastavitve</button>
     </div>
+
   </div>
 </div>
+
 
 <!-- HEADER -->
+
 <header class="site-header">
+
   <div class="header-mandala-bar"></div>
+
   <div class="header-brand">
+
     <div class="header-left">
+
       <div class="search-bar">
-        <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="rgba(245,230,184,.5)" stroke-width="2">
-          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+
+        <svg width="13" height="13" fill="none" viewBox="0 0 24 24"
+             stroke="rgba(245,230,184,.5)" stroke-width="2">
+
+          <circle cx="11" cy="11" r="8"/>
+          <path d="m21 21-4.35-4.35"/>
+
         </svg>
-        <input type="text" id="searchInput" placeholder="Iskanje vedske modrosti…">
+
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Iskanje vedske modrosti…"
+        >
+
       </div>
+
     </div>
-    <div class="brand-center" id="brandCenter" style="cursor:pointer" onclick="filterCategory('vse',null)">
+
+
+    <div
+      class="brand-center"
+      id="brandCenter"
+      style="cursor:pointer"
+      onclick="filterCategory('vse',null)"
+    >
+
       <div class="brand-om">✦ OM ✦</div>
-      <div class="brand-name">Vedski<span> Časopis</span></div>
-      <div class="brand-tagline">Modrost Starih Ved — Luč Sodobnega Sveta</div>
-      <div class="brand-divider">⸻ ✦ ⸻</div>
+
+      <div class="brand-name">
+        Vedski<span> Časopis</span>
+      </div>
+
+      <div class="brand-tagline">
+        Modrost Starih Ved — Luč Sodobnega Sveta
+      </div>
+
+      <div class="brand-divider">
+        ⸻ ✦ ⸻
+      </div>
+
     </div>
+
+
     <div class="header-right">
-      <button class="btn btn-primary" id="btnNewArticle" style="display:none">+ Nov zapis</button>
+
+      <button
+        class="btn btn-primary"
+        id="btnNewArticle"
+        style="display:none"
+      >
+        + Nov zapis
+      </button>
+
     </div>
+
   </div>
+
+
   <nav class="site-nav">
+
     <div class="nav-inner" id="navInner">
-      <div class="nav-item active" data-cat="vse" onclick="filterCategory('vse',this)">✦ Vse vsebine</div>
+
+      <div
+        class="nav-item active"
+        data-cat="vse"
+        onclick="filterCategory('vse',this)"
+      >
+        ✦ Vse vsebine
+      </div>
+
     </div>
+
   </nav>
+
 </header>
 
+
 <main>
+
+
   <!-- HERO -->
-  <section class="hero-section" id="heroSection"></section>
+
+  <section
+    class="hero-section"
+    id="heroSection"
+  ></section>
+
 
   <!-- CONTENT -->
+
   <div class="content-wrapper">
+
     <div>
+
       <div class="section-header">
-        <h2 id="sectionTitle">Najnovejši zapisi</h2>
-        <button class="btn btn-outline btn-sm" onclick="refreshArticles()" id="btnRefresh">↺ Osveži</button>
+
+        <h2 id="sectionTitle">
+          Najnovejši zapisi
+        </h2>
+
+        <button
+          class="btn btn-outline btn-sm"
+          onclick="refreshArticles()"
+          id="btnRefresh"
+        >
+          ↺ Osveži
+        </button>
+
       </div>
-      <div class="articles-grid" id="articlesGrid">
-        <div class="empty-state"><div class="empty-icon">✦</div><p>Nalaganje…</p></div>
+
+
+      <div
+        class="articles-grid"
+        id="articlesGrid"
+      >
+
+        <div class="empty-state">
+
+          <div class="empty-icon">✦</div>
+
+          <p>Nalaganje…</p>
+
+        </div>
+
       </div>
+
     </div>
-    <aside class="sidebar" id="sidebar"></aside>
+
+
+    <aside
+      class="sidebar"
+      id="sidebar"
+    ></aside>
+
   </div>
 
-  <!-- READER OVERLAY (original style — fixed position, full screen) -->
-  <div class="reader-overlay" id="readerOverlay">
+
+  <!-- ARTICLE READER -->
+
+  <div
+    class="reader-overlay"
+    id="readerOverlay"
+  >
+
     <div class="reader-header">
-      <button class="reader-back" onclick="closeReader()">← Nazaj</button>
-      <div style="flex:1"></div>
+
+      <button
+        class="reader-back"
+        onclick="closeReader()"
+      >
+        ← Nazaj
+      </button>
+
+
+      <div
+        class="reader-nav"
+        id="readerNav"
+      ></div>
+
+
       <div id="readerAdminActions"></div>
+
     </div>
-    <div class="reader-content" id="readerContent"></div>
+
+
+    <div
+      class="reader-content"
+      id="readerContent"
+    ></div>
+
   </div>
+
 </main>
 
+
 <!-- FOOTER -->
+
 <footer class="site-footer">
-  <div class="footer-om">✦ ॐ ✦</div>
-  <div class="footer-name">Vedski Časopis</div>
+
+  <div class="footer-om">
+    ✦ ॐ ✦
+  </div>
+
+  <div class="footer-name">
+    Vedski Časopis
+  </div>
+
   <hr class="footer-divider">
-  <div class="footer-text">Modrost Starih Ved — Luč Sodobnega Sveta &nbsp;·&nbsp; &copy; <span id="footerYear"></span></div>
+
+  <div class="footer-text">
+    Modrost Starih Ved — Luč Sodobnega Sveta
+    &nbsp;·&nbsp;
+    &copy;
+    <span id="footerYear"></span>
+  </div>
+
 </footer>
 
-<!-- ═══════════ MODALS ═══════════ -->
 
+<!-- ═══════════════════════════════════════════════════════ -->
 <!-- EDITOR -->
-<div class="modal-overlay" id="editorModal">
+<!-- ═══════════════════════════════════════════════════════ -->
+
+<div
+  class="modal-overlay"
+  id="editorModal"
+>
+
   <div class="modal">
+
     <div class="modal-header">
-      <h3 id="editorTitle">Nov zapis</h3>
-      <button class="modal-close" onclick="closeModal('editorModal')">×</button>
+
+      <h3 id="editorTitle">
+        Nov zapis
+      </h3>
+
+      <button
+        class="modal-close"
+        onclick="closeModal('editorModal')"
+      >
+        ×
+      </button>
+
     </div>
+
+
     <div class="modal-body">
-      <input type="hidden" id="editingId">
+
+      <input
+        type="hidden"
+        id="editingId"
+      >
+
+
       <div class="form-row">
+
         <div class="form-group">
+
           <label>Področje *</label>
+
           <select id="articleCategory"></select>
+
         </div>
+
+
         <div class="form-group">
+
           <label>Avtor</label>
-          <input type="text" id="articleAuthor" placeholder="Ime Priimek">
+
+          <input
+            type="text"
+            id="articleAuthor"
+            placeholder="Ime Priimek"
+          >
+
         </div>
+
       </div>
+
+
       <div class="form-group">
+
         <label>Naslov *</label>
-        <input type="text" id="articleTitle" placeholder="Naslov zapisa…">
+
+        <input
+          type="text"
+          id="articleTitle"
+          placeholder="Naslov zapisa…"
+        >
+
       </div>
+
+
       <div class="form-group">
+
         <label>Kratki povzetek</label>
-        <textarea id="articleExcerpt" rows="2" placeholder="Uvodni odstavek…"></textarea>
+
+        <textarea
+          id="articleExcerpt"
+          rows="2"
+          placeholder="Uvodni odstavek…"
+        ></textarea>
+
       </div>
+
+
       <div class="form-group">
+
         <label>Vsebina *</label>
-        <textarea id="articleContent" rows="9" placeholder="Celotna vsebina zapisa…"></textarea>
+
+        <textarea
+          id="articleContent"
+          rows="9"
+          placeholder="Celotna vsebina zapisa…"
+        ></textarea>
+
       </div>
+
+
       <div class="form-group">
+
         <label>URL slike</label>
-        <input type="url" id="articleImage" placeholder="https://…">
-        <div class="form-hint">Priporočeno: 1200 × 630 px</div>
+
+        <input
+          type="url"
+          id="articleImage"
+          placeholder="https://…"
+        >
+
+        <div class="form-hint">
+          Priporočeno: 1200 × 630 px
+        </div>
+
       </div>
+
     </div>
+
+
     <div class="modal-footer">
-      <button class="btn btn-outline" onclick="closeModal('editorModal')">Prekliči</button>
-      <button class="btn btn-primary" id="btnSaveArticle" onclick="saveArticle()">Objavi zapis</button>
+
+      <button
+        class="btn btn-outline"
+        onclick="closeModal('editorModal')"
+      >
+        Prekliči
+      </button>
+
+      <button
+        class="btn btn-primary"
+        id="btnSaveArticle"
+        onclick="saveArticle()"
+      >
+        Objavi zapis
+      </button>
+
     </div>
+
   </div>
+
 </div>
 
+
+<!-- ═══════════════════════════════════════════════════════ -->
 <!-- SETTINGS -->
-<div class="modal-overlay" id="settingsModal">
+<!-- ═══════════════════════════════════════════════════════ -->
+
+<div
+  class="modal-overlay"
+  id="settingsModal"
+>
+
   <div class="modal">
+
     <div class="modal-header">
-      <h3>Nastavitve uredništva</h3>
-      <button class="modal-close" onclick="closeModal('settingsModal')">×</button>
+
+      <h3>
+        Nastavitve uredništva
+      </h3>
+
+      <button
+        class="modal-close"
+        onclick="closeModal('settingsModal')"
+      >
+        ×
+      </button>
+
     </div>
+
+
     <div class="modal-body">
+
+
       <div class="settings-section">
-        <h4>GitHub integracija</h4>
+
+        <h4>
+          GitHub integracija
+        </h4>
+
+
         <div class="form-group">
+
           <label>GitHub žeton</label>
-          <input type="password" id="ghToken" placeholder="ghp_…">
+
+          <input
+            type="password"
+            id="ghToken"
+            placeholder="ghp_…"
+          >
+
         </div>
+
+
         <div class="form-row">
+
           <div class="form-group">
+
             <label>Lastnik repozitorija</label>
-            <input type="text" id="ghOwner" placeholder="username">
+
+            <input
+              type="text"
+              id="ghOwner"
+              placeholder="username"
+            >
+
           </div>
+
+
           <div class="form-group">
+
             <label>Ime repozitorija</label>
-            <input type="text" id="ghRepo" placeholder="vedski-casopis">
+
+            <input
+              type="text"
+              id="ghRepo"
+              placeholder="vedski-casopis"
+            >
+
           </div>
+
         </div>
+
+
         <div class="form-row">
+
           <div class="form-group">
+
             <label>Veja (branch)</label>
-            <input type="text" id="ghBranch" placeholder="main">
+
+            <input
+              type="text"
+              id="ghBranch"
+              placeholder="main"
+            >
+
           </div>
+
+
           <div class="form-group">
+
             <label>Pot do articles.json</label>
-            <input type="text" id="ghFilePath" placeholder="articles.json">
+
+            <input
+              type="text"
+              id="ghFilePath"
+              placeholder="articles.json"
+            >
+
           </div>
+
         </div>
+
+
         <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <button class="btn btn-primary btn-sm" onclick="saveSettings()">Shrani nastavitve</button>
-          <button class="btn btn-outline btn-sm" onclick="testConnection()">Preveri povezavo</button>
+
+          <button
+            class="btn btn-primary btn-sm"
+            onclick="saveSettings()"
+          >
+            Shrani nastavitve
+          </button>
+
+          <button
+            class="btn btn-outline btn-sm"
+            onclick="testConnection()"
+          >
+            Preveri povezavo
+          </button>
+
         </div>
+
       </div>
+
+
       <div class="settings-section">
-        <h4>Področja (rubrike)</h4>
-        <div class="rubrika-list" id="rubrikaList"></div>
-        <div style="display:flex;gap:8px;margin-top:12px">
-          <input type="text" id="newRubrikaInput" placeholder="Ime področja…" style="flex:1;padding:8px 12px;border:1px solid var(--border);font-family:var(--font-body);font-size:14px;background:var(--white)">
-          <button class="btn btn-primary btn-sm" onclick="addRubrika()">Dodaj</button>
+
+        <h4>
+          Področja (rubrike)
+        </h4>
+
+        <div
+          class="rubrika-list"
+          id="rubrikaList"
+        ></div>
+
+
+        <div
+          style="display:flex;gap:8px;margin-top:12px"
+        >
+
+          <input
+            type="text"
+            id="newRubrikaInput"
+            placeholder="Ime področja…"
+            style="flex:1;padding:8px 12px;border:1px solid var(--border);font-family:var(--font-body);font-size:14px;background:var(--white)"
+          >
+
+          <button
+            class="btn btn-primary btn-sm"
+            onclick="addRubrika()"
+          >
+            Dodaj
+          </button>
+
         </div>
+
       </div>
+
+
       <div class="settings-section">
-        <h4>Geslo uredništva</h4>
+
+        <h4>
+          Geslo uredništva
+        </h4>
+
+
         <div class="form-group">
+
           <label>Novo geslo</label>
-          <input type="password" id="newAdminPass" placeholder="••••••••">
+
+          <input
+            type="password"
+            id="newAdminPass"
+            placeholder="••••••••"
+          >
+
         </div>
-        <button class="btn btn-outline btn-sm" onclick="changePassword()">Spremeni geslo</button>
+
+
+        <button
+          class="btn btn-outline btn-sm"
+          onclick="changePassword()"
+        >
+          Spremeni geslo
+        </button>
+
       </div>
+
     </div>
+
+
     <div class="modal-footer">
-      <button class="btn btn-outline" onclick="closeModal('settingsModal')">Zapri</button>
+
+      <button
+        class="btn btn-outline"
+        onclick="closeModal('settingsModal')"
+      >
+        Zapri
+      </button>
+
     </div>
+
   </div>
+
 </div>
 
+
+<!-- ═══════════════════════════════════════════════════════ -->
 <!-- LOGIN -->
-<div class="modal-overlay" id="loginModal">
-  <div class="modal" style="max-width:380px">
+<!-- ═══════════════════════════════════════════════════════ -->
+
+<div
+  class="modal-overlay"
+  id="loginModal"
+>
+
+  <div
+    class="modal"
+    style="max-width:380px"
+  >
+
     <div class="modal-header">
-      <h3>Urednički dostop</h3>
-      <button class="modal-close" onclick="closeModal('loginModal')">×</button>
+
+      <h3>
+        Urednički dostop
+      </h3>
+
+      <button
+        class="modal-close"
+        onclick="closeModal('loginModal')"
+      >
+        ×
+      </button>
+
     </div>
+
+
     <div class="modal-body">
-      <div style="text-align:center;color:var(--gold);font-size:28px;margin-bottom:16px;letter-spacing:8px">✦ ॐ ✦</div>
-      <div class="form-group">
-        <label>Geslo</label>
-        <input type="password" id="adminPassword" placeholder="••••••••" onkeydown="if(event.key==='Enter')checkAdminLogin()">
+
+      <div
+        style="text-align:center;color:var(--gold);font-size:28px;margin-bottom:16px;letter-spacing:8px"
+      >
+        ✦ ॐ ✦
       </div>
+
+
+      <div class="form-group">
+
+        <label>Geslo</label>
+
+        <input
+          type="password"
+          id="adminPassword"
+          placeholder="••••••••"
+          onkeydown="if(event.key==='Enter')checkAdminLogin()"
+        >
+
+      </div>
+
     </div>
+
+
     <div class="modal-footer">
-      <button class="btn btn-outline" onclick="closeModal('loginModal')">Prekliči</button>
-      <button class="btn btn-primary" onclick="checkAdminLogin()">Vstopi</button>
+
+      <button
+        class="btn btn-outline"
+        onclick="closeModal('loginModal')"
+      >
+        Prekliči
+      </button>
+
+      <button
+        class="btn btn-primary"
+        onclick="checkAdminLogin()"
+      >
+        Vstopi
+      </button>
+
     </div>
+
   </div>
+
 </div>
 
+
+<!-- ═══════════════════════════════════════════════════════ -->
 <!-- CONFIRM DELETE -->
-<div class="modal-overlay" id="confirmModal">
-  <div class="modal" style="max-width:400px">
+<!-- ═══════════════════════════════════════════════════════ -->
+
+<div
+  class="modal-overlay"
+  id="confirmModal"
+>
+
+  <div
+    class="modal"
+    style="max-width:400px"
+  >
+
     <div class="modal-header">
-      <h3>Potrditev brisanja</h3>
-      <button class="modal-close" onclick="closeModal('confirmModal')">×</button>
+
+      <h3>
+        Potrditev brisanja
+      </h3>
+
+      <button
+        class="modal-close"
+        onclick="closeModal('confirmModal')"
+      >
+        ×
+      </button>
+
     </div>
+
+
     <div class="modal-body">
-      <p style="font-family:var(--font-body);font-size:16px">Ste prepričani, da želite izbrisati ta zapis? Tega dejanja ni mogoče razveljaviti.</p>
+
+      <p
+        style="font-family:var(--font-body);font-size:16px"
+      >
+        Ste prepričani, da želite izbrisati ta zapis?
+        Tega dejanja ni mogoče razveljaviti.
+      </p>
+
     </div>
+
+
     <div class="modal-footer">
-      <button class="btn btn-outline" onclick="closeModal('confirmModal')">Prekliči</button>
-      <button class="btn btn-danger" id="btnConfirmDelete">Izbriši</button>
+
+      <button
+        class="btn btn-outline"
+        onclick="closeModal('confirmModal')"
+      >
+        Prekliči
+      </button>
+
+      <button
+        class="btn btn-danger"
+        id="btnConfirmDelete"
+      >
+        Izbriši
+      </button>
+
     </div>
+
   </div>
+
 </div>
+
 
 <script>
+
+
 /* ── STATE ──────────────────────────────────────────────── */
+
 let STATE = {
+
   articles: [],
-  categories: ['Ayurveda', 'Joga & Meditacija', 'Vedska filozofija', 'Astrologija', 'Narava & Kozmos', 'Zdravje & Duh'],
+
+  categories: [
+    'Ayurveda',
+    'Joga & Meditacija',
+    'Vedska filozofija',
+    'Astrologija',
+    'Narava & Kozmos',
+    'Zdravje & Duh'
+  ],
+
   settings: {
-    ghToken: '', ghOwner: '', ghRepo: '', ghBranch: 'main',
+
+    ghToken: '',
+    ghOwner: '',
+    ghRepo: '',
+    ghBranch: 'main',
     ghFilePath: 'articles.json',
+
     adminPass: 'urednik2024'
+
   },
+
   isAdmin: false,
-  currentCategory: 'vse',
+
+  currentCategory: 'vse'
+
 };
 
+
 const QUOTES = [
-  { text: 'Kadar je um miren, so vse ovire premagane.', source: 'Bhagavad Gita' },
-  { text: 'Telo je tempelj duše — skrbite zanj z ljubeznijo in modrostjo.', source: 'Ayurveda Shastra' },
-  { text: 'V tišini prebiva resnica. V resnici prebiva Bog.', source: 'Upanišade' },
-  { text: 'Znanje brez delovanja je kot drevo brez sadežev.', source: 'Vedska modrost' },
-  { text: 'Dah je most med telesom in duhom.', source: 'Pranayama Sutra' },
+
+  {
+    text: 'Kadar je um miren, so vse ovire premagane.',
+    source: 'Bhagavad Gita'
+  },
+
+  {
+    text: 'Telo je tempelj duše — skrbite zanj z ljubeznijo in modrostjo.',
+    source: 'Ayurveda Shastra'
+  },
+
+  {
+    text: 'V tišini prebiva resnica. V resnici prebiva Bog.',
+    source: 'Upanišade'
+  },
+
+  {
+    text: 'Znanje brez delovanja je kot drevo brez sadežev.',
+    source: 'Vedska modrost'
+  },
+
+  {
+    text: 'Dah je most med telesom in duhom.',
+    source: 'Pranayama Sutra'
+  }
+
 ];
 
+
 /* ── INIT ───────────────────────────────────────────────── */
+
 document.addEventListener('DOMContentLoaded', () => {
+
   loadLocalState();
+
   setDate();
+
   renderNav();
+
   loadArticles();
+
   setupSearch();
-  document.getElementById('footerYear').textContent = new Date().getFullYear();
-  document.getElementById('btnNewArticle').addEventListener('click', () => openArticleEditor());
-  document.getElementById('btnSettings').addEventListener('click', openSettings);
-  document.getElementById('btnAdminToggle').addEventListener('click', () => openModal('loginModal'));
+
+  document.getElementById('footerYear').textContent =
+    new Date().getFullYear();
+
+  document.getElementById('btnNewArticle')
+    .addEventListener('click', () => openArticleEditor());
+
+  document.getElementById('btnSettings')
+    .addEventListener('click', openSettings);
+
+  document.getElementById('btnAdminToggle')
+    .addEventListener('click', () => openModal('loginModal'));
+
   document.querySelectorAll('.modal-overlay').forEach(el => {
-    el.addEventListener('click', e => { if (e.target === el) el.classList.remove('open'); });
+
+    el.addEventListener('click', e => {
+
+      if (e.target === el) {
+        el.classList.remove('open');
+      }
+
+    });
+
   });
+
 });
 
+
+/* ── LOCAL STORAGE ─────────────────────────────────────── */
+
 function loadLocalState() {
+
   try {
+
     const s = localStorage.getItem('vedski_settings');
-    if (s) STATE.settings = { ...STATE.settings, ...JSON.parse(s) };
+
+    if (s) {
+      STATE.settings = {
+        ...STATE.settings,
+        ...JSON.parse(s)
+      };
+    }
+
+
     const c = localStorage.getItem('vedski_cats');
-    if (c) STATE.categories = JSON.parse(c);
+
+    if (c) {
+      STATE.categories = JSON.parse(c);
+    }
+
+
     const a = localStorage.getItem('vedski_articles');
-    if (a) STATE.articles = JSON.parse(a);
+
+    if (a) {
+      STATE.articles = JSON.parse(a);
+    }
+
   } catch(e) {}
+
 }
+
+
 function saveLocalState() {
-  localStorage.setItem('vedski_settings', JSON.stringify(STATE.settings));
-  localStorage.setItem('vedski_cats', JSON.stringify(STATE.categories));
-  localStorage.setItem('vedski_articles', JSON.stringify(STATE.articles));
+
+  localStorage.setItem(
+    'vedski_settings',
+    JSON.stringify(STATE.settings)
+  );
+
+  localStorage.setItem(
+    'vedski_cats',
+    JSON.stringify(STATE.categories)
+  );
+
+  localStorage.setItem(
+    'vedski_articles',
+    JSON.stringify(STATE.articles)
+  );
+
 }
+
+
+/* ── DATE ───────────────────────────────────────────────── */
 
 function setDate() {
+
   const d = new Date();
+
   document.getElementById('currentDate').textContent =
-    d.toLocaleDateString('sl-SI', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+    d.toLocaleDateString(
+      'sl-SI',
+      {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      }
+    );
+
 }
 
-/* ── NAV ────────────────────────────────────────────────── */
+
+/* ── MAIN NAV ───────────────────────────────────────────── */
+
 function renderNav() {
+
   const nav = document.getElementById('navInner');
-  nav.innerHTML = `<div class="nav-item ${STATE.currentCategory==='vse'?'active':''}" data-cat="vse" onclick="filterCategory('vse',this)">✦ Vse vsebine</div>`;
+
+  nav.innerHTML = `
+    <div
+      class="nav-item ${STATE.currentCategory === 'vse' ? 'active' : ''}"
+      data-cat="vse"
+      onclick="filterCategory('vse',this)"
+    >
+      ✦ Vse vsebine
+    </div>
+  `;
+
+
   STATE.categories.forEach(cat => {
+
     const d = document.createElement('div');
-    d.className = 'nav-item' + (STATE.currentCategory === cat ? ' active' : '');
+
+    d.className =
+      'nav-item' +
+      (STATE.currentCategory === cat ? ' active' : '');
+
     d.dataset.cat = cat;
+
     d.textContent = cat;
-    d.onclick = function() { filterCategory(cat, this); };
+
+    d.onclick = function() {
+      filterCategory(cat, this);
+    };
+
     nav.appendChild(d);
+
   });
+
 }
+
+
+/* ── READER NAV ─────────────────────────────────────────── */
+
+/*
+   To je pomemben nov del.
+
+   Ko odpremo članek, ta funkcija ustvari
+   kategorije tudi v zgornji vrstici čitalnika.
+*/
+
+function renderReaderNav() {
+
+  const nav = document.getElementById('readerNav');
+
+  if (!nav) return;
+
+  nav.innerHTML = '';
+
+
+  /* VSE */
+
+  const all = document.createElement('div');
+
+  all.className =
+    'nav-item' +
+    (STATE.currentCategory === 'vse' ? ' active' : '');
+
+  all.textContent = '✦ Vse';
+
+  all.onclick = function() {
+
+    readerFilterCategory('vse');
+
+  };
+
+  nav.appendChild(all);
+
+
+  /* POSAMEZNE KATEGORIJE */
+
+  STATE.categories.forEach(cat => {
+
+    const item = document.createElement('div');
+
+    item.className =
+      'nav-item' +
+      (STATE.currentCategory === cat ? ' active' : '');
+
+    item.textContent = cat;
+
+    item.onclick = function() {
+
+      readerFilterCategory(cat);
+
+    };
+
+    nav.appendChild(item);
+
+  });
+
+}
+
+
+/*
+   Ko uporabnik klikne kategorijo med branjem,
+   zapremo članek in preklopimo na izbrano kategorijo.
+*/
+
+function readerFilterCategory(cat) {
+
+  closeReader();
+
+  filterCategory(cat, null);
+
+}
+
+
+/* ── FILTER CATEGORY ───────────────────────────────────── */
 
 function filterCategory(cat, el) {
+
   STATE.currentCategory = cat;
-  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-  if (el) { el.classList.add('active'); }
-  else { const f = document.querySelector(`.nav-item[data-cat="${cat}"]`); if(f) f.classList.add('active'); }
-  document.getElementById('sectionTitle').textContent = cat === 'vse' ? 'Najnovejši zapisi' : cat;
-  document.getElementById('heroSection').style.display = cat === 'vse' ? '' : 'none';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+
+  document.querySelectorAll('.nav-item')
+    .forEach(n => n.classList.remove('active'));
+
+
+  if (el) {
+
+    el.classList.add('active');
+
+  } else {
+
+    const items =
+      document.querySelectorAll('.nav-item');
+
+    items.forEach(item => {
+
+      if (item.dataset.cat === cat) {
+        item.classList.add('active');
+      }
+
+    });
+
+  }
+
+
+  document.getElementById('sectionTitle').textContent =
+    cat === 'vse'
+      ? 'Najnovejši zapisi'
+      : cat;
+
+
+  document.getElementById('heroSection').style.display =
+    cat === 'vse'
+      ? ''
+      : 'none';
+
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+
+
   renderArticles();
+
 }
 
-/* ── LOAD ───────────────────────────────────────────────── */
+
+/* ── LOAD ARTICLES ──────────────────────────────────────── */
+
 async function loadArticles() {
-  const { ghOwner, ghRepo, ghFilePath, ghBranch, ghToken } = STATE.settings;
-  // 1. Same-origin (GitHub Pages)
+
+  const {
+    ghOwner,
+    ghRepo,
+    ghFilePath,
+    ghBranch,
+    ghToken
+  } = STATE.settings;
+
+
+  /* 1. SAME ORIGIN */
+
   try {
-    const res = await fetch(ghFilePath || 'articles.json', { cache: 'no-store' });
+
+    const res = await fetch(
+      ghFilePath || 'articles.json',
+      {
+        cache: 'no-store'
+      }
+    );
+
+
     if (res.ok) {
+
       const j = await res.json();
-      STATE.articles = j.articles || j;
+
+      STATE.articles =
+        j.articles || j;
+
       saveLocalState();
-      renderHero(); renderArticles(); renderSidebar(); return;
+
+      renderHero();
+      renderArticles();
+      renderSidebar();
+
+      return;
+
     }
+
   } catch(e) {}
-  // 2. Raw GitHub URL
+
+
+  /* 2. RAW GITHUB */
+
   if (ghOwner && ghRepo && ghFilePath) {
+
     try {
-      const res = await fetch(`https://raw.githubusercontent.com/${ghOwner}/${ghRepo}/${ghBranch||'main'}/${ghFilePath}?t=${Date.now()}`);
-      if (res.ok) {
-        const j = await res.json();
-        STATE.articles = j.articles || j;
-        saveLocalState();
-        renderHero(); renderArticles(); renderSidebar(); return;
-      }
-    } catch(e) {}
-  }
-  // 3. GitHub API
-  if (ghOwner && ghRepo && ghFilePath && ghToken) {
-    try {
+
       const res = await fetch(
-        `https://api.github.com/repos/${ghOwner}/${ghRepo}/contents/${ghFilePath}?ref=${ghBranch||'main'}`,
-        { headers: { Authorization: `token ${ghToken}`, Accept: 'application/vnd.github.v3+json' } }
+        `https://raw.githubusercontent.com/${ghOwner}/${ghRepo}/${ghBranch || 'main'}/${ghFilePath}?t=${Date.now()}`
       );
+
+
       if (res.ok) {
+
         const j = await res.json();
-        STATE.articles = JSON.parse(atob(j.content.replace(/\s/g, ''))).articles || [];
+
+        STATE.articles =
+          j.articles || j;
+
         saveLocalState();
+
+        renderHero();
+        renderArticles();
+        renderSidebar();
+
+        return;
+
       }
+
     } catch(e) {}
+
   }
-  renderHero(); renderArticles(); renderSidebar();
+
+
+  /* 3. GITHUB API */
+
+  if (
+    ghOwner &&
+    ghRepo &&
+    ghFilePath &&
+    ghToken
+  ) {
+
+    try {
+
+      const res = await fetch(
+
+        `https://api.github.com/repos/${ghOwner}/${ghRepo}/contents/${ghFilePath}?ref=${ghBranch || 'main'}`,
+
+        {
+          headers: {
+            Authorization: `token ${ghToken}`,
+            Accept: 'application/vnd.github.v3+json'
+          }
+        }
+
+      );
+
+
+      if (res.ok) {
+
+        const j = await res.json();
+
+        STATE.articles =
+          JSON.parse(
+            atob(j.content.replace(/\s/g, ''))
+          ).articles || [];
+
+        saveLocalState();
+
+      }
+
+    } catch(e) {}
+
+  }
+
+
+  renderHero();
+  renderArticles();
+  renderSidebar();
+
 }
+
+
+/* ── REFRESH ────────────────────────────────────────────── */
 
 async function refreshArticles() {
-  const btn = document.getElementById('btnRefresh');
-  btn.textContent = '↺ …'; btn.disabled = true;
+
+  const btn =
+    document.getElementById('btnRefresh');
+
+  btn.textContent = '↺ …';
+
+  btn.disabled = true;
+
+
   await loadArticles();
-  btn.textContent = '↺ Osveži'; btn.disabled = false;
-  toast('Vsebine posodobljene.', 'success');
+
+
+  btn.textContent = '↺ Osveži';
+
+  btn.disabled = false;
+
+
+  toast(
+    'Vsebine posodobljene.',
+    'success'
+  );
+
 }
+
 
 /* ── SAVE TO GITHUB ─────────────────────────────────────── */
+
 async function saveToGitHub() {
-  const { ghToken, ghOwner, ghRepo, ghFilePath, ghBranch } = STATE.settings;
-  if (!ghToken || !ghOwner || !ghRepo) return false;
+
+  const {
+    ghToken,
+    ghOwner,
+    ghRepo,
+    ghFilePath,
+    ghBranch
+  } = STATE.settings;
+
+
+  if (!ghToken || !ghOwner || !ghRepo) {
+    return false;
+  }
+
+
   let sha = null;
+
+
   try {
+
     const r = await fetch(
-      `https://api.github.com/repos/${ghOwner}/${ghRepo}/contents/${ghFilePath}?ref=${ghBranch||'main'}`,
-      { headers: { Authorization: `token ${ghToken}`, Accept: 'application/vnd.github.v3+json' } }
+
+      `https://api.github.com/repos/${ghOwner}/${ghRepo}/contents/${ghFilePath}?ref=${ghBranch || 'main'}`,
+
+      {
+        headers: {
+          Authorization: `token ${ghToken}`,
+          Accept: 'application/vnd.github.v3+json'
+        }
+      }
+
     );
-    if (r.ok) { const j = await r.json(); sha = j.sha; }
+
+
+    if (r.ok) {
+
+      const j = await r.json();
+
+      sha = j.sha;
+
+    }
+
   } catch(e) {}
-  const content = btoa(unescape(encodeURIComponent(JSON.stringify({ articles: STATE.articles }, null, 2))));
-  const body = { message: `Vedski Časopis — ${new Date().toLocaleString('sl-SI')}`, content, branch: ghBranch || 'main' };
-  if (sha) body.sha = sha;
+
+
+  const content =
+    btoa(
+      unescape(
+        encodeURIComponent(
+          JSON.stringify(
+            {
+              articles: STATE.articles
+            },
+            null,
+            2
+          )
+        )
+      )
+    );
+
+
+  const body = {
+
+    message:
+      `Vedski Časopis — ${new Date().toLocaleString('sl-SI')}`,
+
+    content,
+
+    branch:
+      ghBranch || 'main'
+
+  };
+
+
+  if (sha) {
+    body.sha = sha;
+  }
+
+
   const res = await fetch(
+
     `https://api.github.com/repos/${ghOwner}/${ghRepo}/contents/${ghFilePath}`,
-    { method: 'PUT', headers: { Authorization: `token ${ghToken}`, 'Content-Type': 'application/json', Accept: 'application/vnd.github.v3+json' }, body: JSON.stringify(body) }
+
+    {
+      method: 'PUT',
+
+      headers: {
+        Authorization: `token ${ghToken}`,
+        'Content-Type': 'application/json',
+        Accept: 'application/vnd.github.v3+json'
+      },
+
+      body: JSON.stringify(body)
+
+    }
+
   );
+
+
   return res.ok;
+
 }
+
 
 /* ── HERO ───────────────────────────────────────────────── */
+
 function renderHero() {
-  const s = document.getElementById('heroSection');
-  if (!STATE.articles.length) { s.innerHTML = ''; return; }
-  const sorted = [...STATE.articles].sort((a,b) => new Date(b.date)-new Date(a.date));
-  const h = sorted[0], h2 = sorted[1], h3 = sorted[2];
+
+  const s =
+    document.getElementById('heroSection');
+
+
+  if (!STATE.articles.length) {
+
+    s.innerHTML = '';
+
+    return;
+
+  }
+
+
+  const sorted =
+    [...STATE.articles]
+      .sort(
+        (a,b) =>
+          new Date(b.date) -
+          new Date(a.date)
+      );
+
+
+  const h = sorted[0];
+
+  const h2 = sorted[1];
+
+  const h3 = sorted[2];
+
+
   s.innerHTML = `
-    <div class="hero-ornament">✦ Izpostavljeno ✦</div>
+
+    <div class="hero-ornament">
+      ✦ Izpostavljeno ✦
+    </div>
+
     <div class="hero-grid">
-      <div class="hero-main" onclick="openReader(${h.id})">
-        ${h.image ? `<img src="${esc(h.image)}" alt="${esc(h.title)}" loading="lazy">` : `<div style="width:100%;height:100%;background:var(--brown)"></div>`}
+
+      <div
+        class="hero-main"
+        onclick="openReader(${h.id})"
+      >
+
+        ${
+          h.image
+
+          ?
+
+          `<img
+            src="${esc(h.image)}"
+            alt="${esc(h.title)}"
+            loading="lazy"
+          >`
+
+          :
+
+          `<div
+            style="width:100%;height:100%;background:var(--brown)"
+          ></div>`
+        }
+
+
         <div class="hero-main-content">
-          <span class="badge">${esc(h.category)}</span>
-          <h2>${esc(h.title)}</h2>
-          <p>${esc(h.excerpt||'')}</p>
-          <div class="hero-meta"><span>${esc(h.author||'Uredništvo')}</span><span>✦</span><span>${formatDate(h.date)}</span></div>
+
+          <span class="badge">
+            ${esc(h.category)}
+          </span>
+
+          <h2>
+            ${esc(h.title)}
+          </h2>
+
+          <p>
+            ${esc(h.excerpt || '')}
+          </p>
+
+          <div class="hero-meta">
+
+            <span>
+              ${esc(h.author || 'Uredništvo')}
+            </span>
+
+            <span>✦</span>
+
+            <span>
+              ${formatDate(h.date)}
+            </span>
+
+          </div>
+
         </div>
+
       </div>
-      ${h2 ? `<div class="hero-side" onclick="openReader(${h2.id})">
-        <span class="badge">${esc(h2.category)}</span>
-        <h3>${esc(h2.title)}</h3>
-        <p>${esc(h2.excerpt||'')}</p>
-        <div class="hero-side-meta">${esc(h2.author||'Uredništvo')} ✦ ${formatDate(h2.date)}</div>
-      </div>` : ''}
-      ${h3 ? `<div class="hero-side" onclick="openReader(${h3.id})">
-        <span class="badge">${esc(h3.category)}</span>
-        <h3>${esc(h3.title)}</h3>
-        <p>${esc(h3.excerpt||'')}</p>
-        <div class="hero-side-meta">${esc(h3.author||'Uredništvo')} ✦ ${formatDate(h3.date)}</div>
-      </div>` : ''}
-    </div>`;
+
+
+      ${
+        h2
+
+        ?
+
+        `<div
+          class="hero-side"
+          onclick="openReader(${h2.id})"
+        >
+
+          <span class="badge">
+            ${esc(h2.category)}
+          </span>
+
+          <h3>
+            ${esc(h2.title)}
+          </h3>
+
+          <p>
+            ${esc(h2.excerpt || '')}
+          </p>
+
+          <div class="hero-side-meta">
+            ${esc(h2.author || 'Uredništvo')}
+            ✦
+            ${formatDate(h2.date)}
+          </div>
+
+        </div>`
+
+        :
+
+        ''
+      }
+
+
+      ${
+        h3
+
+        ?
+
+        `<div
+          class="hero-side"
+          onclick="openReader(${h3.id})"
+        >
+
+          <span class="badge">
+            ${esc(h3.category)}
+          </span>
+
+          <h3>
+            ${esc(h3.title)}
+          </h3>
+
+          <p>
+            ${esc(h3.excerpt || '')}
+          </p>
+
+          <div class="hero-side-meta">
+            ${esc(h3.author || 'Uredništvo')}
+            ✦
+            ${formatDate(h3.date)}
+          </div>
+
+        </div>`
+
+        :
+
+        ''
+      }
+
+    </div>
+
+  `;
+
 }
+
 
 /* ── ARTICLES GRID ──────────────────────────────────────── */
+
 function renderArticles() {
-  const grid = document.getElementById('articlesGrid');
-  const q = document.getElementById('searchInput').value.toLowerCase();
-  let arts = [...STATE.articles].sort((a,b) => new Date(b.date)-new Date(a.date));
-  if (STATE.currentCategory !== 'vse') arts = arts.filter(a => a.category === STATE.currentCategory);
-  if (q) arts = arts.filter(a => a.title.toLowerCase().includes(q) || (a.excerpt||'').toLowerCase().includes(q) || (a.content||'').toLowerCase().includes(q));
-  if (!arts.length) {
-    grid.innerHTML = `<div class="empty-state">
-      <div class="empty-icon">✦</div>
-      <h3>Ni zapisov</h3>
-      <p style="font-style:italic">${q ? 'Iskanje ni vrnilo rezultatov.' : 'V tem področju ni zapisov.'}</p>
-      ${STATE.isAdmin ? `<br><button class="btn btn-primary" onclick="openArticleEditor()">+ Dodaj zapis</button>` : ''}
-    </div>`;
-    return;
+
+  const grid =
+    document.getElementById('articlesGrid');
+
+
+  const q =
+    document.getElementById('searchInput')
+      .value
+      .toLowerCase();
+
+
+  let arts =
+    [...STATE.articles]
+      .sort(
+        (a,b) =>
+          new Date(b.date) -
+          new Date(a.date)
+      );
+
+
+  if (STATE.currentCategory !== 'vse') {
+
+    arts =
+      arts.filter(
+        a =>
+          a.category ===
+          STATE.currentCategory
+      );
+
   }
-  grid.innerHTML = arts.map(a => `
-    <div class="article-card" onclick="openReader(${a.id})">
-      <div class="card-image">
-        ${a.image ? `<img src="${esc(a.image)}" alt="${esc(a.title)}" loading="lazy">` : `<div class="card-image-placeholder">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(245,230,184,.4)" stroke-width="1">
-            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
-          </svg>
-        </div>`}
-      </div>
-      <div class="card-body">
-        <div class="card-category">${esc(a.category)}</div>
-        <div class="card-title">${esc(a.title)}</div>
-        <div class="card-excerpt">${esc(a.excerpt || (a.content||'').substring(0,160))}</div>
-        <div class="card-footer">
-          <div class="card-author">
-            <div class="card-avatar">${(a.author||'U')[0].toUpperCase()}</div>
-            <span>${esc(a.author||'Uredništvo')}</span>
-          </div>
-          <span>${formatDate(a.date)}</span>
+
+
+  if (q) {
+
+    arts =
+      arts.filter(a =>
+
+        a.title
+          .toLowerCase()
+          .includes(q)
+
+        ||
+
+        (a.excerpt || '')
+          .toLowerCase()
+          .includes(q)
+
+        ||
+
+        (a.content || '')
+          .toLowerCase()
+          .includes(q)
+
+      );
+
+  }
+
+
+  if (!arts.length) {
+
+    grid.innerHTML = `
+
+      <div class="empty-state">
+
+        <div class="empty-icon">
+          ✦
         </div>
-        ${STATE.isAdmin ? `<div class="card-admin-actions">
-          <button class="btn btn-outline btn-sm" onclick="event.stopPropagation();openArticleEditor(${a.id})">✎ Uredi</button>
-          <button class="btn btn-danger btn-sm" onclick="event.stopPropagation();confirmDelete(${a.id})">✕ Briši</button>
-        </div>` : ''}
+
+        <h3>
+          Ni zapisov
+        </h3>
+
+        <p style="font-style:italic">
+
+          ${
+            q
+              ? 'Iskanje ni vrnilo rezultatov.'
+              : 'V tem področju ni zapisov.'
+          }
+
+        </p>
+
+
+        ${
+          STATE.isAdmin
+
+          ?
+
+          `<br>
+
+          <button
+            class="btn btn-primary"
+            onclick="openArticleEditor()"
+          >
+            + Dodaj zapis
+          </button>`
+
+          :
+
+          ''
+        }
+
       </div>
-    </div>`).join('');
+
+    `;
+
+    return;
+
+  }
+
+
+  grid.innerHTML =
+
+    arts.map(a => `
+
+      <div
+        class="article-card"
+        onclick="openReader(${a.id})"
+      >
+
+        <div class="card-image">
+
+          ${
+            a.image
+
+            ?
+
+            `<img
+              src="${esc(a.image)}"
+              alt="${esc(a.title)}"
+              loading="lazy"
+            >`
+
+            :
+
+            `<div class="card-image-placeholder">
+
+              <svg
+                width="48"
+                height="48"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="rgba(245,230,184,.4)"
+                stroke-width="1"
+              >
+
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="10"
+                />
+
+                <path
+                  d="M12 6v6l4 2"
+                />
+
+              </svg>
+
+            </div>`
+
+          }
+
+        </div>
+
+
+        <div class="card-body">
+
+          <div class="card-category">
+            ${esc(a.category)}
+          </div>
+
+          <div class="card-title">
+            ${esc(a.title)}
+          </div>
+
+          <div class="card-excerpt">
+
+            ${esc(
+              a.excerpt ||
+              (a.content || '').substring(0,160)
+            )}
+
+          </div>
+
+
+          <div class="card-footer">
+
+            <div class="card-author">
+
+              <div class="card-avatar">
+                ${(a.author || 'U')[0].toUpperCase()}
+              </div>
+
+              <span>
+                ${esc(a.author || 'Uredništvo')}
+              </span>
+
+            </div>
+
+            <span>
+              ${formatDate(a.date)}
+            </span>
+
+          </div>
+
+
+          ${
+            STATE.isAdmin
+
+            ?
+
+            `<div class="card-admin-actions">
+
+              <button
+                class="btn btn-outline btn-sm"
+                onclick="event.stopPropagation();openArticleEditor(${a.id})"
+              >
+                ✎ Uredi
+              </button>
+
+              <button
+                class="btn btn-danger btn-sm"
+                onclick="event.stopPropagation();confirmDelete(${a.id})"
+              >
+                ✕ Briši
+              </button>
+
+            </div>`
+
+            :
+
+            ''
+          }
+
+        </div>
+
+      </div>
+
+    `).join('');
+
 }
+
 
 /* ── SIDEBAR ────────────────────────────────────────────── */
+
 function renderSidebar() {
-  const sb = document.getElementById('sidebar');
-  const top = [...STATE.articles].sort((a,b) => new Date(b.date)-new Date(a.date)).slice(0,5);
-  const q = QUOTES[Math.floor(Math.random()*QUOTES.length)];
+
+  const sb =
+    document.getElementById('sidebar');
+
+
+  const top =
+    [...STATE.articles]
+      .sort(
+        (a,b) =>
+          new Date(b.date) -
+          new Date(a.date)
+      )
+      .slice(0,5);
+
+
+  const q =
+    QUOTES[
+      Math.floor(
+        Math.random() *
+        QUOTES.length
+      )
+    ];
+
+
   sb.innerHTML = `
+
     <div class="quote-widget">
-      <div class="quote-text">"${q.text}"</div>
-      <div class="quote-source">— ${q.source}</div>
+
+      <div class="quote-text">
+        "${q.text}"
+      </div>
+
+      <div class="quote-source">
+        — ${q.source}
+      </div>
+
     </div>
+
+
     <div class="sidebar-widget">
-      <div class="widget-title">Aktualni zapisi</div>
-      ${top.map((a,i) => `<div class="trending-item" onclick="openReader(${a.id})">
-        <div class="trending-num">${String(i+1).padStart(2,'0')}</div>
-        <div class="trending-text"><h4>${esc(a.title)}</h4><span>${esc(a.category)} ✦ ${formatDate(a.date)}</span></div>
-      </div>`).join('')}
+
+      <div class="widget-title">
+        Aktualni zapisi
+      </div>
+
+
+      ${
+
+        top.map((a,i) => `
+
+          <div
+            class="trending-item"
+            onclick="openReader(${a.id})"
+          >
+
+            <div class="trending-num">
+              ${String(i+1).padStart(2,'0')}
+            </div>
+
+            <div class="trending-text">
+
+              <h4>
+                ${esc(a.title)}
+              </h4>
+
+              <span>
+                ${esc(a.category)}
+                ✦
+                ${formatDate(a.date)}
+              </span>
+
+            </div>
+
+          </div>
+
+        `).join('')
+
+      }
+
     </div>
+
+
     <div class="sidebar-widget">
-      <div class="widget-title">Področja</div>
-      ${STATE.categories.map(c => {
-        const cnt = STATE.articles.filter(a => a.category===c).length;
-        return `<div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border);cursor:pointer;font-family:var(--font-body);font-size:15px"
-          onclick="filterCategory('${esc(c)}',null)">
-          <span>${esc(c)}</span>
-          <span style="font-family:var(--font-deco);font-size:11px;color:var(--gold)">${cnt}</span>
-        </div>`;
-      }).join('')}
-    </div>`;
+
+      <div class="widget-title">
+        Področja
+      </div>
+
+
+      ${
+
+        STATE.categories.map(c => {
+
+          const cnt =
+            STATE.articles.filter(
+              a =>
+                a.category === c
+            ).length;
+
+
+          return `
+
+            <div
+              style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border);cursor:pointer;font-family:var(--font-body);font-size:15px"
+
+              onclick="filterCategory('${esc(c)}',null)"
+            >
+
+              <span>
+                ${esc(c)}
+              </span>
+
+              <span
+                style="font-family:var(--font-deco);font-size:11px;color:var(--gold)"
+              >
+                ${cnt}
+              </span>
+
+            </div>
+
+          `;
+
+        }).join('')
+
+      }
+
+    </div>
+
+  `;
+
 }
+
 
 /* ── READER ─────────────────────────────────────────────── */
+
+/*
+   Tukaj je glavna sprememba.
+
+   Preden odpremo članek, pokličemo
+   renderReaderNav(), zato se kategorije
+   vedno prikažejo v zgornjem headerju.
+*/
+
 function openReader(id) {
-  const a = STATE.articles.find(x => x.id === id);
+
+  const a =
+    STATE.articles.find(
+      x => x.id === id
+    );
+
+
   if (!a) return;
-  const content = document.getElementById('readerContent');
+
+
+  const content =
+    document.getElementById('readerContent');
+
+
   content.innerHTML = `
-    <div class="reader-category">${esc(a.category)}</div>
-    <h1 class="reader-title">${esc(a.title)}</h1>
-    <div class="reader-meta">
-      <span>${esc(a.author||'Uredništvo')}</span><span>✦</span>
-      <span>${formatDate(a.date)}</span><span>✦</span>
-      <span>${readTime(a.content)} min branja</span>
+
+    <div class="reader-category">
+      ${esc(a.category)}
     </div>
-    ${a.image ? `<img class="reader-image" src="${esc(a.image)}" alt="${esc(a.title)}" loading="lazy">` : ''}
-    <div class="reader-ornament">⸻ ✦ ⸻</div>
-    <div class="reader-body">${formatContent(a.content||'')}</div>
-    <div class="reader-ornament" style="margin-top:40px">✦ ॐ ✦</div>
-    ${STATE.isAdmin ? `<div class="reader-admin">
-      <button class="btn btn-outline" onclick="closeReader();openArticleEditor(${a.id})">✎ Uredi</button>
-      <button class="btn btn-danger" onclick="closeReader();confirmDelete(${a.id})">✕ Briši</button>
-    </div>` : ''}
+
+
+    <h1 class="reader-title">
+      ${esc(a.title)}
+    </h1>
+
+
+    <div class="reader-meta">
+
+      <span>
+        ${esc(a.author || 'Uredništvo')}
+      </span>
+
+      <span>✦</span>
+
+      <span>
+        ${formatDate(a.date)}
+      </span>
+
+      <span>✦</span>
+
+      <span>
+        ${readTime(a.content)} min branja
+      </span>
+
+    </div>
+
+
+    ${
+      a.image
+
+      ?
+
+      `<img
+        class="reader-image"
+        src="${esc(a.image)}"
+        alt="${esc(a.title)}"
+        loading="lazy"
+      >`
+
+      :
+
+      ''
+    }
+
+
+    <div class="reader-ornament">
+      ⸻ ✦ ⸻
+    </div>
+
+
+    <div class="reader-body">
+      ${formatContent(a.content || '')}
+    </div>
+
+
+    <div
+      class="reader-ornament"
+      style="margin-top:40px"
+    >
+      ✦ ॐ ✦
+    </div>
+
+
+    ${
+      STATE.isAdmin
+
+      ?
+
+      `<div class="reader-admin">
+
+        <button
+          class="btn btn-outline"
+          onclick="closeReader();openArticleEditor(${a.id})"
+        >
+          ✎ Uredi
+        </button>
+
+        <button
+          class="btn btn-danger"
+          onclick="closeReader();confirmDelete(${a.id})"
+        >
+          ✕ Briši
+        </button>
+
+      </div>`
+
+      :
+
+      ''
+    }
+
   `;
-  document.getElementById('readerOverlay').classList.add('open');
+
+
+  /*
+     NOVO:
+     tukaj se ustvari zgornji meni kategorij.
+  */
+
+  renderReaderNav();
+
+
+  /*
+     Odpre čitalnik.
+  */
+
+  document
+    .getElementById('readerOverlay')
+    .classList.add('open');
+
+
+  /*
+     Prepreči drsenje glavne strani
+     v ozadju.
+  */
+
   document.body.style.overflow = 'hidden';
+
 }
+
+
+/* ── CLOSE READER ───────────────────────────────────────── */
+
 function closeReader() {
-  document.getElementById('readerOverlay').classList.remove('open');
+
+  document
+    .getElementById('readerOverlay')
+    .classList.remove('open');
+
+
   document.body.style.overflow = '';
+
 }
+
 
 /* ── ARTICLE EDITOR ─────────────────────────────────────── */
+
 function openArticleEditor(id = null) {
+
   if (!STATE.isAdmin) return;
-  const sel = document.getElementById('articleCategory');
-  sel.innerHTML = STATE.categories.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join('');
+
+
+  const sel =
+    document.getElementById('articleCategory');
+
+
+  sel.innerHTML =
+    STATE.categories
+      .map(
+        c =>
+          `<option value="${esc(c)}">${esc(c)}</option>`
+      )
+      .join('');
+
+
   if (id) {
-    const a = STATE.articles.find(x => x.id === id);
+
+    const a =
+      STATE.articles.find(
+        x => x.id === id
+      );
+
+
     if (!a) return;
-    document.getElementById('editorTitle').textContent = 'Uredi zapis';
-    document.getElementById('editingId').value = id;
-    document.getElementById('articleTitle').value = a.title;
-    document.getElementById('articleCategory').value = a.category;
-    document.getElementById('articleAuthor').value = a.author||'';
-    document.getElementById('articleExcerpt').value = a.excerpt||'';
-    document.getElementById('articleContent').value = a.content||'';
-    document.getElementById('articleImage').value = a.image||'';
-    document.getElementById('btnSaveArticle').textContent = 'Shrani spremembe';
+
+
+    document.getElementById('editorTitle')
+      .textContent = 'Uredi zapis';
+
+    document.getElementById('editingId')
+      .value = id;
+
+    document.getElementById('articleTitle')
+      .value = a.title;
+
+    document.getElementById('articleCategory')
+      .value = a.category;
+
+    document.getElementById('articleAuthor')
+      .value = a.author || '';
+
+    document.getElementById('articleExcerpt')
+      .value = a.excerpt || '';
+
+    document.getElementById('articleContent')
+      .value = a.content || '';
+
+    document.getElementById('articleImage')
+      .value = a.image || '';
+
+    document.getElementById('btnSaveArticle')
+      .textContent = 'Shrani spremembe';
+
   } else {
-    document.getElementById('editorTitle').textContent = 'Nov zapis';
-    document.getElementById('editingId').value = '';
-    ['articleTitle','articleAuthor','articleExcerpt','articleContent','articleImage'].forEach(id => document.getElementById(id).value = '');
-    document.getElementById('btnSaveArticle').textContent = 'Objavi zapis';
+
+    document.getElementById('editorTitle')
+      .textContent = 'Nov zapis';
+
+    document.getElementById('editingId')
+      .value = '';
+
+
+    [
+      'articleTitle',
+      'articleAuthor',
+      'articleExcerpt',
+      'articleContent',
+      'articleImage'
+    ].forEach(id => {
+
+      document.getElementById(id).value = '';
+
+    });
+
+
+    document.getElementById('btnSaveArticle')
+      .textContent = 'Objavi zapis';
+
   }
+
+
   openModal('editorModal');
+
 }
+
+
+/* ── SAVE ARTICLE ───────────────────────────────────────── */
 
 async function saveArticle() {
-  const title = document.getElementById('articleTitle').value.trim();
-  const content = document.getElementById('articleContent').value.trim();
-  if (!title) { toast('Vnesite naslov!', 'error'); return; }
-  if (!content) { toast('Vnesite vsebino!', 'error'); return; }
-  const btn = document.getElementById('btnSaveArticle');
-  const editingId = document.getElementById('editingId').value;
-  const origText = editingId ? 'Shrani spremembe' : 'Objavi zapis';
+
+  const title =
+    document
+      .getElementById('articleTitle')
+      .value
+      .trim();
+
+
+  const content =
+    document
+      .getElementById('articleContent')
+      .value
+      .trim();
+
+
+  if (!title) {
+
+    toast(
+      'Vnesite naslov!',
+      'error'
+    );
+
+    return;
+
+  }
+
+
+  if (!content) {
+
+    toast(
+      'Vnesite vsebino!',
+      'error'
+    );
+
+    return;
+
+  }
+
+
+  const btn =
+    document.getElementById('btnSaveArticle');
+
+
+  const editingId =
+    document
+      .getElementById('editingId')
+      .value;
+
+
+  const origText =
+    editingId
+      ? 'Shrani spremembe'
+      : 'Objavi zapis';
+
+
   btn.disabled = true;
-  btn.innerHTML = '<span style="display:inline-block;width:13px;height:13px;border:2px solid rgba(44,24,16,.3);border-top-color:var(--brown);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:6px"></span>Shranjujem…';
+
+
+  btn.innerHTML = `
+
+    <span
+      style="display:inline-block;width:13px;height:13px;border:2px solid rgba(44,24,16,.3);border-top-color:var(--brown);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:6px"
+    ></span>
+
+    Shranjujem…
+
+  `;
+
+
   const article = {
-    id: editingId ? parseInt(editingId) : Date.now(),
-    title, category: document.getElementById('articleCategory').value,
-    author: document.getElementById('articleAuthor').value.trim()||'Uredništvo',
-    excerpt: document.getElementById('articleExcerpt').value.trim(),
-    content, image: document.getElementById('articleImage').value.trim(),
-    date: editingId ? (STATE.articles.find(a=>a.id===parseInt(editingId))?.date||new Date().toISOString()) : new Date().toISOString(),
-    updated: new Date().toISOString(),
+
+    id:
+      editingId
+        ? parseInt(editingId)
+        : Date.now(),
+
+    title,
+
+    category:
+      document
+        .getElementById('articleCategory')
+        .value,
+
+    author:
+      document
+        .getElementById('articleAuthor')
+        .value
+        .trim()
+      || 'Uredništvo',
+
+    excerpt:
+      document
+        .getElementById('articleExcerpt')
+        .value
+        .trim(),
+
+    content,
+
+    image:
+      document
+        .getElementById('articleImage')
+        .value
+        .trim(),
+
+    date:
+      editingId
+
+        ?
+
+        (
+          STATE.articles.find(
+            a =>
+              a.id ===
+              parseInt(editingId)
+          )?.date
+          ||
+          new Date().toISOString()
+        )
+
+        :
+
+        new Date().toISOString(),
+
+    updated:
+      new Date().toISOString()
+
   };
+
+
   if (editingId) {
-    const idx = STATE.articles.findIndex(a=>a.id===parseInt(editingId));
-    if (idx !== -1) STATE.articles[idx] = article; else STATE.articles.unshift(article);
-  } else { STATE.articles.unshift(article); }
+
+    const idx =
+      STATE.articles.findIndex(
+        a =>
+          a.id ===
+          parseInt(editingId)
+      );
+
+
+    if (idx !== -1) {
+
+      STATE.articles[idx] =
+        article;
+
+    } else {
+
+      STATE.articles.unshift(
+        article
+      );
+
+    }
+
+  } else {
+
+    STATE.articles.unshift(
+      article
+    );
+
+  }
+
+
   saveLocalState();
+
+
   let ghOk = false;
-  try { ghOk = await saveToGitHub(); } catch(e) {}
-  btn.disabled = false; btn.innerHTML = origText;
+
+
+  try {
+
+    ghOk =
+      await saveToGitHub();
+
+  } catch(e) {}
+
+
+  btn.disabled = false;
+
+  btn.innerHTML =
+    origText;
+
+
   closeModal('editorModal');
-  renderHero(); renderArticles(); renderSidebar();
-  toast(ghOk ? 'Zapis objavljen na GitHub ✦' : 'Shranjeno lokalno (GitHub ni konfiguriran)', ghOk ? 'success' : 'error');
+
+
+  renderHero();
+
+  renderArticles();
+
+  renderSidebar();
+
+
+  toast(
+
+    ghOk
+
+      ?
+
+      'Zapis objavljen na GitHub ✦'
+
+      :
+
+      'Shranjeno lokalno (GitHub ni konfiguriran)',
+
+    ghOk
+      ? 'success'
+      : 'error'
+
+  );
+
 }
+
 
 /* ── DELETE ─────────────────────────────────────────────── */
+
 function confirmDelete(id) {
+
   openModal('confirmModal');
-  document.getElementById('btnConfirmDelete').onclick = async () => {
-    STATE.articles = STATE.articles.filter(a=>a.id!==id);
-    saveLocalState();
-    try { await saveToGitHub(); } catch(e) {}
-    closeModal('confirmModal');
-    renderHero(); renderArticles(); renderSidebar();
-    toast('Zapis izbrisan.', 'success');
-  };
+
+
+  document
+    .getElementById('btnConfirmDelete')
+    .onclick = async () => {
+
+      STATE.articles =
+        STATE.articles.filter(
+          a =>
+            a.id !== id
+        );
+
+
+      saveLocalState();
+
+
+      try {
+
+        await saveToGitHub();
+
+      } catch(e) {}
+
+
+      closeModal('confirmModal');
+
+
+      renderHero();
+
+      renderArticles();
+
+      renderSidebar();
+
+
+      toast(
+        'Zapis izbrisan.',
+        'success'
+      );
+
+    };
+
 }
+
 
 /* ── ADMIN ──────────────────────────────────────────────── */
+
 function checkAdminLogin() {
-  const pw = document.getElementById('adminPassword').value;
-  if (pw === STATE.settings.adminPass) {
+
+  const pw =
+    document
+      .getElementById('adminPassword')
+      .value;
+
+
+  if (
+    pw ===
+    STATE.settings.adminPass
+  ) {
+
     STATE.isAdmin = true;
+
+
     closeModal('loginModal');
-    document.getElementById('adminBanner').classList.add('visible');
-    document.getElementById('btnNewArticle').style.display = 'inline-flex';
-    document.getElementById('btnSettings').style.display = 'inline-block';
-    document.getElementById('btnAdminToggle').textContent = 'Odjava';
-    document.getElementById('btnAdminToggle').onclick = adminLogout;
-    document.getElementById('adminPassword').value = '';
+
+
+    document
+      .getElementById('adminBanner')
+      .classList.add('visible');
+
+
+    document
+      .getElementById('btnNewArticle')
+      .style.display =
+      'inline-flex';
+
+
+    document
+      .getElementById('btnSettings')
+      .style.display =
+      'inline-block';
+
+
+    document
+      .getElementById('btnAdminToggle')
+      .textContent =
+      'Odjava';
+
+
+    document
+      .getElementById('btnAdminToggle')
+      .onclick =
+      adminLogout;
+
+
+    document
+      .getElementById('adminPassword')
+      .value = '';
+
+
     renderArticles();
-    toast('Dobrodošli, urednik ✦', 'success');
-  } else { toast('Napačno geslo.', 'error'); }
+
+
+    toast(
+      'Dobrodošli, urednik ✦',
+      'success'
+    );
+
+  } else {
+
+    toast(
+      'Napačno geslo.',
+      'error'
+    );
+
+  }
+
 }
+
+
 function adminLogout() {
+
   STATE.isAdmin = false;
-  document.getElementById('adminBanner').classList.remove('visible');
-  document.getElementById('btnNewArticle').style.display = 'none';
-  document.getElementById('btnSettings').style.display = 'none';
-  document.getElementById('btnAdminToggle').textContent = 'Urednički dostop';
-  document.getElementById('btnAdminToggle').onclick = () => openModal('loginModal');
-  renderArticles(); toast('Odjavljeni.', 'success');
+
+
+  document
+    .getElementById('adminBanner')
+    .classList.remove('visible');
+
+
+  document
+    .getElementById('btnNewArticle')
+    .style.display =
+    'none';
+
+
+  document
+    .getElementById('btnSettings')
+    .style.display =
+    'none';
+
+
+  document
+    .getElementById('btnAdminToggle')
+    .textContent =
+    'Urednički dostop';
+
+
+  document
+    .getElementById('btnAdminToggle')
+    .onclick =
+    () => openModal('loginModal');
+
+
+  renderArticles();
+
+
+  toast(
+    'Odjavljeni.',
+    'success'
+  );
+
 }
+
 
 /* ── SETTINGS ───────────────────────────────────────────── */
+
 function openSettings() {
-  const s = STATE.settings;
-  document.getElementById('ghToken').value = s.ghToken||'';
-  document.getElementById('ghOwner').value = s.ghOwner||'';
-  document.getElementById('ghRepo').value = s.ghRepo||'';
-  document.getElementById('ghBranch').value = s.ghBranch||'main';
-  document.getElementById('ghFilePath').value = s.ghFilePath||'articles.json';
+
+  const s =
+    STATE.settings;
+
+
+  document.getElementById('ghToken').value =
+    s.ghToken || '';
+
+  document.getElementById('ghOwner').value =
+    s.ghOwner || '';
+
+  document.getElementById('ghRepo').value =
+    s.ghRepo || '';
+
+  document.getElementById('ghBranch').value =
+    s.ghBranch || 'main';
+
+  document.getElementById('ghFilePath').value =
+    s.ghFilePath || 'articles.json';
+
+
   renderRubrikaList();
+
+
   openModal('settingsModal');
+
 }
+
+
 function saveSettings() {
-  STATE.settings.ghToken = document.getElementById('ghToken').value.trim();
-  STATE.settings.ghOwner = document.getElementById('ghOwner').value.trim();
-  STATE.settings.ghRepo = document.getElementById('ghRepo').value.trim();
-  STATE.settings.ghBranch = document.getElementById('ghBranch').value.trim()||'main';
-  STATE.settings.ghFilePath = document.getElementById('ghFilePath').value.trim()||'articles.json';
-  saveLocalState(); toast('Nastavitve shranjene.', 'success');
+
+  STATE.settings.ghToken =
+    document
+      .getElementById('ghToken')
+      .value
+      .trim();
+
+
+  STATE.settings.ghOwner =
+    document
+      .getElementById('ghOwner')
+      .value
+      .trim();
+
+
+  STATE.settings.ghRepo =
+    document
+      .getElementById('ghRepo')
+      .value
+      .trim();
+
+
+  STATE.settings.ghBranch =
+    document
+      .getElementById('ghBranch')
+      .value
+      .trim()
+    ||
+    'main';
+
+
+  STATE.settings.ghFilePath =
+    document
+      .getElementById('ghFilePath')
+      .value
+      .trim()
+    ||
+    'articles.json';
+
+
+  saveLocalState();
+
+
+  toast(
+    'Nastavitve shranjene.',
+    'success'
+  );
+
 }
+
+
 function changePassword() {
-  const p = document.getElementById('newAdminPass').value.trim();
-  if (!p) { toast('Vnesite novo geslo!', 'error'); return; }
-  STATE.settings.adminPass = p;
-  saveLocalState(); document.getElementById('newAdminPass').value = '';
-  toast('Geslo spremenjeno.', 'success');
+
+  const p =
+    document
+      .getElementById('newAdminPass')
+      .value
+      .trim();
+
+
+  if (!p) {
+
+    toast(
+      'Vnesite novo geslo!',
+      'error'
+    );
+
+    return;
+
+  }
+
+
+  STATE.settings.adminPass =
+    p;
+
+
+  saveLocalState();
+
+
+  document
+    .getElementById('newAdminPass')
+    .value = '';
+
+
+  toast(
+    'Geslo spremenjeno.',
+    'success'
+  );
+
 }
+
+
 async function testConnection() {
-  const { ghToken, ghOwner, ghRepo } = STATE.settings;
-  if (!ghToken||!ghOwner||!ghRepo) { toast('Izpolnite vse podatke.', 'error'); return; }
+
+  const {
+    ghToken,
+    ghOwner,
+    ghRepo
+  } = STATE.settings;
+
+
+  if (
+    !ghToken ||
+    !ghOwner ||
+    !ghRepo
+  ) {
+
+    toast(
+      'Izpolnite vse podatke.',
+      'error'
+    );
+
+    return;
+
+  }
+
+
   try {
-    const r = await fetch(`https://api.github.com/repos/${ghOwner}/${ghRepo}`, { headers:{ Authorization:`token ${ghToken}` } });
-    toast(r.ok ? 'Povezava uspešna ✦' : 'Napaka: '+r.status, r.ok ? 'success' : 'error');
-  } catch(e) { toast('Napaka pri povezavi.', 'error'); }
+
+    const r =
+      await fetch(
+        `https://api.github.com/repos/${ghOwner}/${ghRepo}`,
+        {
+          headers: {
+            Authorization:
+              `token ${ghToken}`
+          }
+        }
+      );
+
+
+    toast(
+
+      r.ok
+        ? 'Povezava uspešna ✦'
+        : 'Napaka: ' + r.status,
+
+      r.ok
+        ? 'success'
+        : 'error'
+
+    );
+
+  } catch(e) {
+
+    toast(
+      'Napaka pri povezavi.',
+      'error'
+    );
+
+  }
+
 }
+
 
 /* ── RUBRIKE ────────────────────────────────────────────── */
+
 function renderRubrikaList() {
-  document.getElementById('rubrikaList').innerHTML = STATE.categories.map((c,i) => `
-    <div class="rubrika-item">
-      <span>${esc(c)}</span>
-      <button class="btn btn-outline btn-sm" onclick="deleteRubrika(${i})">Odstrani</button>
-    </div>`).join('');
+
+  document
+    .getElementById('rubrikaList')
+    .innerHTML =
+
+    STATE.categories
+      .map((c,i) => `
+
+        <div class="rubrika-item">
+
+          <span>
+            ${esc(c)}
+          </span>
+
+          <button
+            class="btn btn-outline btn-sm"
+            onclick="deleteRubrika(${i})"
+          >
+            Odstrani
+          </button>
+
+        </div>
+
+      `)
+      .join('');
+
 }
+
+
 function addRubrika() {
-  const inp = document.getElementById('newRubrikaInput');
-  const name = inp.value.trim();
-  if (!name||STATE.categories.includes(name)) { toast('Področje že obstaja ali je prazno.', 'error'); return; }
-  STATE.categories.push(name); saveLocalState(); inp.value = '';
-  renderRubrikaList(); renderNav(); toast(`Področje "${name}" dodano.`, 'success');
+
+  const inp =
+    document
+      .getElementById('newRubrikaInput');
+
+
+  const name =
+    inp.value.trim();
+
+
+  if (
+    !name ||
+    STATE.categories.includes(name)
+  ) {
+
+    toast(
+      'Področje že obstaja ali je prazno.',
+      'error'
+    );
+
+    return;
+
+  }
+
+
+  STATE.categories.push(name);
+
+
+  saveLocalState();
+
+
+  inp.value = '';
+
+
+  renderRubrikaList();
+
+  renderNav();
+
+
+  /*
+     Osvežimo tudi meni v čitalniku,
+     če je trenutno odprt.
+  */
+
+  renderReaderNav();
+
+
+  toast(
+    `Področje "${name}" dodano.`,
+    'success'
+  );
+
 }
+
+
 function deleteRubrika(i) {
-  const name = STATE.categories[i];
-  STATE.categories.splice(i,1); saveLocalState();
-  renderRubrikaList(); renderNav(); toast(`Področje "${name}" odstranjeno.`, 'success');
+
+  const name =
+    STATE.categories[i];
+
+
+  STATE.categories.splice(
+    i,
+    1
+  );
+
+
+  saveLocalState();
+
+
+  renderRubrikaList();
+
+  renderNav();
+
+  renderReaderNav();
+
+
+  toast(
+    `Področje "${name}" odstranjeno.`,
+    'success'
+  );
+
 }
+
 
 /* ── SEARCH ─────────────────────────────────────────────── */
+
 function setupSearch() {
+
   let t;
-  document.getElementById('searchInput').addEventListener('input', () => { clearTimeout(t); t = setTimeout(renderArticles, 250); });
+
+
+  document
+    .getElementById('searchInput')
+    .addEventListener(
+      'input',
+      () => {
+
+        clearTimeout(t);
+
+        t =
+          setTimeout(
+            renderArticles,
+            250
+          );
+
+      }
+    );
+
 }
+
 
 /* ── MODALS ─────────────────────────────────────────────── */
-function openModal(id) { document.getElementById(id).classList.add('open'); }
-function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+
+function openModal(id) {
+
+  document
+    .getElementById(id)
+    .classList
+    .add('open');
+
+}
+
+
+function closeModal(id) {
+
+  document
+    .getElementById(id)
+    .classList
+    .remove('open');
+
+}
+
 
 /* ── TOAST ──────────────────────────────────────────────── */
-function toast(msg, type='success') {
-  const c = document.getElementById('toastContainer');
-  const t = document.createElement('div');
-  t.className = `toast ${type}`; t.textContent = msg; c.appendChild(t);
-  requestAnimationFrame(() => requestAnimationFrame(() => t.classList.add('show')));
-  setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 300); }, 3500);
+
+function toast(
+  msg,
+  type = 'success'
+) {
+
+  const c =
+    document
+      .getElementById('toastContainer');
+
+
+  const t =
+    document.createElement('div');
+
+
+  t.className =
+    `toast ${type}`;
+
+
+  t.textContent =
+    msg;
+
+
+  c.appendChild(t);
+
+
+  requestAnimationFrame(
+    () =>
+      requestAnimationFrame(
+        () =>
+          t.classList.add('show')
+      )
+  );
+
+
+  setTimeout(
+    () => {
+
+      t.classList.remove(
+        'show'
+      );
+
+
+      setTimeout(
+        () =>
+          t.remove(),
+        300
+      );
+
+    },
+    3500
+  );
+
 }
 
+
 /* ── UTILS ──────────────────────────────────────────────── */
+
 function esc(s) {
-  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+
+  return String(s || '')
+
+    .replace(
+      /&/g,
+      '&amp;'
+    )
+
+    .replace(
+      /</g,
+      '&lt;'
+    )
+
+    .replace(
+      />/g,
+      '&gt;'
+    )
+
+    .replace(
+      /"/g,
+      '&quot;'
+    )
+
+    .replace(
+      /'/g,
+      '&#39;'
+    );
+
 }
+
+
 function formatDate(iso) {
+
   if (!iso) return '';
-  return new Date(iso).toLocaleDateString('sl-SI', { day:'numeric', month:'long', year:'numeric' });
+
+
+  return new Date(iso)
+    .toLocaleDateString(
+      'sl-SI',
+      {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      }
+    );
+
 }
-function readTime(t) { return Math.max(1, Math.round((t||'').split(' ').length/200)); }
-function formatContent(text) { return text.split('\n').filter(Boolean).map(p=>`<p>${esc(p)}</p>`).join(''); }
+
+
+function readTime(t) {
+
+  return Math.max(
+    1,
+    Math.round(
+      (t || '')
+        .split(' ')
+        .length / 200
+    )
+  );
+
+}
+
+
+function formatContent(text) {
+
+  return text
+    .split('\n')
+    .filter(Boolean)
+    .map(
+      p =>
+        `<p>${esc(p)}</p>`
+    )
+    .join('');
+
+}
+
 </script>
+
 </body>
 </html>
