@@ -1,0 +1,70 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "title": "Ayurveda — Starodavna Veda o Življenju in Zdravju",
+      "category": "Ayurveda",
+      "author": "Uredništvo",
+      "excerpt": "Ayurveda, veda o življenju, je najstarejši celostni zdravstveni sistem na svetu. Stara več kot 5000 let, nas uči, kako živeti v harmoniji s svojo naravo in z naravo vesolja.",
+      "content": "Ayurveda — Starodavna Veda o Življenju\n\nBeseda Ayurveda izhaja iz sanskrta: ayur pomeni življenje, veda pa znanje. Gre za najstarejši celovit sistem zdravja in dobrega počutja na svetu, ki izvira iz indijske vedske tradicije, stare več kot 5000 let.\n\nTri doše — osnova vsega\n\nPo ayurvedski filozofiji je vse v vesolju sestavljeno iz petih elementov: zraka, ognja, vode, zemlje in prostora. Ti elementi se v telesu združijo v tri temeljne energije: Vato (zrak in prostor), Pitto (ogenj in voda) ter Kafo (zemlja in voda).\n\nVsak človek se rodi z edinstveno kombinacijo teh treh doš, ki jo imenujemo prakriti. Ko so doše v ravnovesju, smo zdravi. Ko se porušijo, nastane bolezen.\n\nHrana kot zdravilo\n\nV ayurvedi je hrana najpomembnejše zdravilo. Vsaka sestavina ima svojo okusno kakovost (rasa), post-prebavni učinek (vipaka) in specifično energijo (virya). Prava hrana za vašo došo gradi ojas — bistveno vitalno esenco, ki podpira imunski sistem in notranji mir.\n\nSveti jutri ritual\n\nAyurveda priporoča dnevno jutranjo rutino: prebujanje pred sončnim vzhodom, čiščenje jezika, pitje tople vode, oljno masažo z olji ter meditacijo in pranayamo.\n\nZačnite z majhnimi koraki — vsak dan eno ajurvedsko prakso — in opazujte, kako se vaše telo in um odzivata.",
+      "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1200&q=80",
+      "date": "2024-01-15T08:00:00.000Z",
+      "updated": "2024-01-15T08:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "title": "Pranayama — Umetnost Zavestnega Dihanja",
+      "category": "Joga & Meditacija",
+      "author": "Uredništvo",
+      "excerpt": "Prana je življenjska sila, ki prežema vse. Skozi zavestno nadzorovanje diha — pranayamo — uravnavamo tok prane v telesu in dosegamo globoko stanje miru ter jasnosti uma.",
+      "content": "Pranayama — Moč Diha\n\nV vedski tradiciji je prana tisto, kar daje življenje vsakemu bitju. Pranayama, ki dobesedno pomeni razširitev prane, je sistematična praksa nadzorovanja dihanja z namenom krepitve in usmerjanja te življenjske energije.\n\nNadi Shodhana — Izmenično dihanje\n\nNajosnovnejša pranayama tehnika je nadi shodhana ali izmenično nosno dihanje. Uravnava tok prane skozi levo in desno nosnico ter uravnovešamo aktivnost obeh možganskih polovic.\n\nPraksa: Sedite udobno. Z desno roko upognite kazalec in srednji prst. Z palcem zaprite desno nosnico in vdihnite skozi levo. Nato zaprite levo nosnico ter izdihnite skozi desno. Vdihnite skozi desno, zaprite in izdihnite skozi levo. To je en cikel. Začnite z 10 cikli.\n\nKapalabhati — Dihanje ognja\n\nKapalabhati je čistilna tehnika z hitrimi, aktivnimi izdihi skozi nos. Krepi trebušne mišice, čisti dihala in spodbuja mentalno jasnost.\n\nPraksa: Sedite pokončno. Hitro in silovito izdihnite skozi nos ter aktivno potegnite trebuh navznoter. Dovolite, da vdih nastopi sam. Začnite z 20 ponovitvami.",
+      "image": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1200&q=80",
+      "date": "2024-01-14T09:00:00.000Z",
+      "updated": "2024-01-14T09:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "title": "Bhagavad Gita — Pesem Boga in Modrost Večnosti",
+      "category": "Vedska filozofija",
+      "author": "Uredništvo",
+      "excerpt": "Bhagavad Gita je ena najpomembnejših besedil vedske duhovne tradicije. V 700 verzih vsebuje celotno filozofijo karme, dharme, joge in mokše.",
+      "content": "Bhagavad Gita — Pesem Boga\n\nBhagavad Gita, dobesedno Pesem Boga, je del svetega hindujskega epa Mahabharata. Nastala je verjetno med 5. in 2. stoletjem pred našim štetjem.\n\nPogovor na bojnem polju\n\nBesedilo opisuje pogovor med knezom Arjuno in kočijašem Krišno tik pred bitko pri Kurukšetri. Arjuna je obupan, ker mora v boj proti lastnim sorodnikom. Krišna mu posreduje globoko duhovno modrost o naravi življenja, dolžnosti in duše.\n\nTri poti do osvoboditve\n\nKarma joga — pot dejanja. Deluj, ne da bi bil navezan na rezultate. Opravljaj svojo dolžnost brez pričakovanj nagrade.\n\nBhakti joga — pot predanosti. Posveti vsako dejanje Bogu. Ljubezen in predanost sta najmočnejši obliki duhovne prakse.\n\nJnana joga — pot znanja. Skozi meditacijo spoznaj pravo naravo sebe in vesolja.\n\nNajpomembnejši verz\n\nKarmanye vadhikaraste, Ma phaleshu kadachana — Imaš pravico do dejanja, ne pa do sadov dejanja. Ta verz je srce Gite in temelj vedske etike.",
+      "image": "https://images.unsplash.com/photo-1609709295948-17d77cb2a69b?w=1200&q=80",
+      "date": "2024-01-13T10:00:00.000Z",
+      "updated": "2024-01-13T10:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "title": "Jyotish — Vedska Astrologija, Luč Nebes",
+      "category": "Astrologija",
+      "author": "Uredništvo",
+      "excerpt": "Jyotish, vedska astrologija, je eno od šestih pomožnih ved. Ni zgolj napovedovanje usode — je globok sistem samospoznavanja, ki razkriva karmo duše in pot do dharme.",
+      "content": "Jyotish — Vedska Astrologija\n\nBeseda Jyotish izhaja iz sanskrta in pomeni luč ali nebeška luč. To je starodavna vedska veda, ki preučuje gibanje nebesnih teles in njihov vpliv na človeško življenje ter zavest.\n\nRazlika med vedsko in zahodno astrologijo\n\nVedska astrologija uporablja siderealni zodiak, ki temelji na dejanskih astronomskih položajih zvezd. Zahodna astrologija pa tropski zodiak, ki temelji na letnih časih. Razlika znaša pribl. 23 stopinj — to se imenuje ayanamsha.\n\nDevet planetov — Navagraha\n\nVedska astrologija preučuje devet planetarnih sil: Sonce, Luna, Mars, Merkur, Jupiter, Venera, Saturn ter dve lunini vozliščni točki — Rahu in Ketu.\n\nDvanajst hiš — področja življenja\n\nHoroscop (kundali) je razdeljen na 12 hiš, ki predstavljajo različna področja življenja: osebnost, bogastvo, komunikacijo, dom, otroke, zdravje, partnerstvo, transformacijo, višje znanje, kariero, prijatelje in duhovno osvoboditev.\n\nGlavni namen Jyotisha je razumevanje karmičnih vzorcev in odkritje dharme — edinstvene duhovne poti vsake duše.",
+      "image": "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=1200&q=80",
+      "date": "2024-01-12T11:00:00.000Z",
+      "updated": "2024-01-12T11:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "title": "Pancha Mahabhuta — Pet Elementov Vesolja",
+      "category": "Narava & Kozmos",
+      "author": "Uredništvo",
+      "excerpt": "Vedska kozmologija uči, da je vse vesolje sestavljeno iz petih temeljnih elementov: Akasha (prostor), Vayu (zrak), Agni (ogenj), Jala (voda) in Prithvi (zemlja).",
+      "content": "Pancha Mahabhuta — Pet Temeljnih Elementov\n\nPo vedski kozmologiji je celotna materialna stvarnost sestavljena iz petih temeljnih elementov. Razumevanje teh elementov je temelj ayurvede, joge in vedske filozofije.\n\nAkasha — Prostor\n\nAkasha je najsubtilnejši element — prostor ali eter, v katerem vse obstaja. Je medium zvoka in komunikacije. V telesu se manifestira v votlinah: ustih, nosu, prsih.\n\nVayu — Zrak\n\nVayu je element gibanja. Vse, kar se premika — od diha do misli — je manifestacija Vayu. V telesu vlada gibanju in živčnemu sistemu.\n\nAgni — Ogenj\n\nAgni je element transformacije. Vse, kar pretvarja — prebava, metabolizem, intelekt — je Agni. Zdrav Agni je ključ do dobrega zdravja.\n\nJala — Voda\n\nJala je element kohezije in toka. Vse telesne tekočine so manifestacije Jale. Daje fleksibilnost in gladkost.\n\nPrithvi — Zemlja\n\nPrithvi je element stabilnosti. Vse, kar je trdno v telesu, je zemlja. Daje nam telesnost in stik z realnostjo.",
+      "image": "https://images.unsplash.com/photo-1446329813274-7c9036bd9a1f?w=1200&q=80",
+      "date": "2024-01-11T12:00:00.000Z",
+      "updated": "2024-01-11T12:00:00.000Z"
+    },
+    {
+      "id": 6,
+      "title": "Ojas — Vitalna Esenca Zdravja in Duhovnosti",
+      "category": "Zdravje & Duh",
+      "author": "Uredništvo",
+      "excerpt": "Ojas je najpomembnejša subtilna substanca v ayurvedi. Je končni produkt popolne prebave in predstavlja esencialno moč imunskega sistema, vitalnosti ter duhovne svetlobe.",
+      "content": "Ojas — Življenjska Esenca\n\nOjas je sanskrtska beseda, ki pomeni moč ali vitalna esenca. V ayurvedi je ojas subtilna esenca, ki nastane kot končni produkt popolne predelave hrane skozi sedem telesnih tkiv (dhatu).\n\nKako nastaja ojas\n\nPrebava hrane traja po ayurvedskem razumevanju 35 dni za celotno predelavo. Vsako tkivo prečisti hranilne snovi in jih posreduje naslednjemu. Iz zadnjega tkiva — reproduktivnega — nastane ojas.\n\nZnaki pomanjkanja ojasa\n\nKronična utrujenost, šibak imunski sistem, tesnoba, izguba življenjske radosti, suha in motna koža.\n\nKako graditi ojas\n\nSveže kuhana hrana; mleko z gheejem; datlji, mandlji in granatna jabolka; redna joga in meditacija; kakovostni spanec; pozitivna čustva in ljubezen.\n\nOjas in duhovna praksa\n\nKo je ojas obilen, duhovne prakse prinesejo globlje uvide. Meditacija postane globlaja, um pa jasnejši. Ojas je gorivo za duhovno evolucijo.",
+      "image": "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=1200&q=80",
+      "date": "2024-01-10T13:00:00.000Z",
+      "updated": "2024-01-10T13:00:00.000Z"
+    }
+  ]
+}
