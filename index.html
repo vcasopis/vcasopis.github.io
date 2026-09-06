@@ -3220,7 +3220,20 @@ function renderArticles() {
           new Date(b.date) -
           new Date(a.date)
       );
+// Glavni članek je že prikazan v HERO delu,
+// zato ga na domači strani ne prikažemo še enkrat.
+// Pri iskanju in v posameznih rubrikah ostane viden.
+const featured = arts[0];
 
+if (
+  STATE.currentCategory === 'vse' &&
+  !q &&
+  featured
+) {
+  arts = arts.filter(
+    a => a.id !== featured.id
+  );
+}
 
   if (
     STATE.currentCategory !== 'vse'
