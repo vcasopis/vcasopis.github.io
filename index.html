@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="sl">
 <head>
@@ -234,6 +235,7 @@ button {
 .brand-center {
   text-align: center;
   flex: 1;
+  padding-top: 10px;
 }
 
 .brand-om {
@@ -241,9 +243,10 @@ button {
   color: var(--gold);
   letter-spacing: .2em;
   font-family: var(--font-deco);
-  margin-bottom: 2px;
-  transform: translateY(-15px);
+  margin-bottom: 8px;
+  transform: none;
 }
+
 .brand-name {
   font-family: var(--font-deco);
   font-size: 30px;
@@ -264,7 +267,7 @@ button {
   font-style: italic;
   color: rgba(245,230,184,.5);
   letter-spacing: .1em;
-  margin-top: 3px;
+  margin-top: 5px;
 }
 
 .brand-divider {
@@ -272,7 +275,7 @@ button {
   font-size: 20px;
   letter-spacing: 6px;
   opacity: .6;
-  margin-top: 2px;
+  margin-top: 3px;
 }
 
 .header-right,
@@ -1038,10 +1041,8 @@ button {
   z-index: 400;
   background: var(--cream);
   overflow-y: auto;
-
   opacity: 0;
   pointer-events: none;
-
   transform: none;
   transition: opacity .22s ease;
 }
@@ -1094,7 +1095,6 @@ button {
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 14px;
-
   display: flex;
   align-items: center;
   gap: 10px;
@@ -1125,15 +1125,12 @@ button {
   align-items: center;
   justify-content: center;
   gap: 16px;
-
   font-size: 13px;
   color: var(--gray);
   font-family: var(--font-deco);
   letter-spacing: .05em;
-
   margin-bottom: 28px;
   padding-bottom: 22px;
-
   border-bottom: 1px solid var(--border);
 }
 
@@ -1141,11 +1138,8 @@ button {
   width: 100%;
   max-height: 520px;
   object-fit: cover;
-
   margin-bottom: 36px;
-
   filter: sepia(8%);
-
   border: 1px solid var(--border);
 }
 
@@ -1163,10 +1157,8 @@ button {
 .reader-admin {
   display: flex;
   gap: 10px;
-
   margin-top: 36px;
   padding-top: 20px;
-
   border-top: 1px solid var(--border);
 }
 
@@ -1178,35 +1170,26 @@ button {
   bottom: 24px;
   right: 24px;
   z-index: 9000;
-
   display: flex;
   flex-direction: column;
   gap: 10px;
-
   pointer-events: none;
 }
 
 .toast {
   background: var(--brown);
   color: var(--gold-pale);
-
   padding: 12px 18px;
-
   border: 1px solid var(--gold);
-
   font-family: var(--font-deco);
   font-size: 12px;
   letter-spacing: .06em;
-
   box-shadow: var(--shadow-lg);
-
   display: flex;
   align-items: center;
   gap: 10px;
-
   transform: translateX(120%);
   transition: transform .25s ease;
-
   pointer-events: all;
 }
 
@@ -1334,11 +1317,36 @@ button {
 @media (max-width: 600px) {
 
   .header-brand {
-    height: 64px;
+    height: 82px;
+    padding: 0 12px;
+  }
+
+  .brand-center {
+    padding-top: 12px;
+  }
+
+  .brand-om {
+    font-size: 10px;
+    letter-spacing: .14em;
+    margin-bottom: 8px;
   }
 
   .brand-name {
     font-size: 22px;
+    letter-spacing: .08em;
+  }
+
+  .brand-tagline {
+    font-size: 10px;
+    letter-spacing: .06em;
+    margin-top: 5px;
+    white-space: nowrap;
+  }
+
+  .brand-divider {
+    font-size: 15px;
+    letter-spacing: 4px;
+    margin-top: 2px;
   }
 
   .hero-section {
@@ -1372,7 +1380,11 @@ button {
   }
 
   .reader-full-header .header-brand {
-    height: 64px;
+    height: 82px;
+  }
+
+  .reader-full-header .brand-center {
+    padding-top: 12px;
   }
 
   .reader-full-header .brand-name {
@@ -1394,6 +1406,48 @@ button {
   .reader-full-header .nav-item {
     padding: 9px 10px;
     font-size: 9px;
+  }
+
+  .topbar {
+    padding: 6px 0;
+  }
+
+  .topbar-inner {
+    padding: 0 12px;
+  }
+
+  .topbar-actions {
+    gap: 12px;
+  }
+
+}
+
+
+@media (max-width: 380px) {
+
+  .header-brand,
+  .reader-full-header .header-brand {
+    height: 78px;
+  }
+
+  .brand-name,
+  .reader-full-header .brand-name {
+    font-size: 19px;
+    letter-spacing: .06em;
+  }
+
+  .brand-om {
+    font-size: 9px;
+    margin-bottom: 7px;
+  }
+
+  .brand-tagline,
+  .reader-full-header .brand-tagline {
+    font-size: 8.5px;
+  }
+
+  .brand-divider {
+    font-size: 13px;
   }
 
 }
@@ -1426,7 +1480,6 @@ button {
     <div style="display:flex;align-items:center;gap:10px">
       <span id="currentDate"></span>
       <span style="color:rgba(201,151,42,.4)">✦</span>
-      <span>Slovenija</span>
     </div>
 
     <div class="topbar-actions">
@@ -1529,7 +1582,6 @@ button {
 
 <main>
 
-
   <!-- HERO -->
 
   <section
@@ -1587,9 +1639,7 @@ button {
   </div>
 
 
-  <!-- ═══════════════════════════════════════════════════ -->
   <!-- CELOTEN HEADER V ČITALNIKU -->
-  <!-- ═══════════════════════════════════════════════════ -->
 
   <div
     class="reader-overlay"
@@ -1597,7 +1647,6 @@ button {
   >
 
     <div class="reader-full-header">
-
 
       <!-- READER TOPBAR -->
 
@@ -1611,10 +1660,6 @@ button {
 
             <span style="color:rgba(201,151,42,.4)">
               ✦
-            </span>
-
-            <span>
-              Slovenija
             </span>
 
           </div>
@@ -1642,9 +1687,7 @@ button {
 
         <div class="header-mandala-bar"></div>
 
-
         <div class="header-brand">
-
 
           <!-- LEVO: ISKANJE -->
 
@@ -1672,7 +1715,6 @@ button {
                 />
 
               </svg>
-
 
               <input
                 type="text"
@@ -1782,9 +1824,7 @@ button {
 </footer>
 
 
-<!-- ═══════════════════════════════════════════════════════ -->
 <!-- EDITOR -->
-<!-- ═══════════════════════════════════════════════════════ -->
 
 <div
   class="modal-overlay"
@@ -1925,9 +1965,7 @@ button {
 </div>
 
 
-<!-- ═══════════════════════════════════════════════════════ -->
 <!-- SETTINGS -->
-<!-- ═══════════════════════════════════════════════════════ -->
 
 <div
   class="modal-overlay"
@@ -1954,13 +1992,11 @@ button {
 
     <div class="modal-body">
 
-
       <div class="settings-section">
 
         <h4>
           GitHub integracija
         </h4>
-
 
         <div class="form-group">
 
@@ -1973,7 +2009,6 @@ button {
           >
 
         </div>
-
 
         <div class="form-row">
 
@@ -1989,7 +2024,6 @@ button {
 
           </div>
 
-
           <div class="form-group">
 
             <label>Ime repozitorija</label>
@@ -2003,7 +2037,6 @@ button {
           </div>
 
         </div>
-
 
         <div class="form-row">
 
@@ -2019,7 +2052,6 @@ button {
 
           </div>
 
-
           <div class="form-group">
 
             <label>Pot do articles.json</label>
@@ -2033,7 +2065,6 @@ button {
           </div>
 
         </div>
-
 
         <div style="display:flex;gap:8px;flex-wrap:wrap">
 
@@ -2067,7 +2098,6 @@ button {
           id="rubrikaList"
         ></div>
 
-
         <div
           style="display:flex;gap:8px;margin-top:12px"
         >
@@ -2097,7 +2127,6 @@ button {
           Geslo uredništva
         </h4>
 
-
         <div class="form-group">
 
           <label>Novo geslo</label>
@@ -2109,7 +2138,6 @@ button {
           >
 
         </div>
-
 
         <button
           class="btn btn-outline btn-sm"
@@ -2139,9 +2167,7 @@ button {
 </div>
 
 
-<!-- ═══════════════════════════════════════════════════════ -->
 <!-- LOGIN -->
-<!-- ═══════════════════════════════════════════════════════ -->
 
 <div
   class="modal-overlay"
@@ -2176,7 +2202,6 @@ button {
       >
         ✦ ॐ ✦
       </div>
-
 
       <div class="form-group">
 
@@ -2217,9 +2242,7 @@ button {
 </div>
 
 
-<!-- ═══════════════════════════════════════════════════════ -->
 <!-- CONFIRM DELETE -->
-<!-- ═══════════════════════════════════════════════════════ -->
 
 <div
   class="modal-overlay"
@@ -2283,7 +2306,6 @@ button {
 
 
 <script>
-
 
 /* ── STATE ──────────────────────────────────────────────── */
 
@@ -2798,9 +2820,7 @@ async function loadArticles() {
 
       const res =
         await fetch(
-
           `https://api.github.com/repos/${ghOwner}/${ghRepo}/contents/${ghFilePath}?ref=${ghBranch || 'main'}`,
-
           {
             headers: {
               Authorization:
@@ -2810,7 +2830,6 @@ async function loadArticles() {
                 'application/vnd.github.v3+json'
             }
           }
-
         );
 
 
@@ -2906,9 +2925,7 @@ async function saveToGitHub() {
 
     const r =
       await fetch(
-
         `https://api.github.com/repos/${ghOwner}/${ghRepo}/contents/${ghFilePath}?ref=${ghBranch || 'main'}`,
-
         {
           headers: {
             Authorization:
@@ -2918,7 +2935,6 @@ async function saveToGitHub() {
               'application/vnd.github.v3+json'
           }
         }
-
       );
 
 
@@ -2971,9 +2987,7 @@ async function saveToGitHub() {
 
   const res =
     await fetch(
-
       `https://api.github.com/repos/${ghOwner}/${ghRepo}/contents/${ghFilePath}`,
-
       {
         method: 'PUT',
 
@@ -2992,7 +3006,6 @@ async function saveToGitHub() {
           JSON.stringify(body)
 
       }
-
     );
 
 
@@ -3054,21 +3067,16 @@ function renderHero() {
 
         ${
           h.image
-
           ?
-
           `<img
             src="${esc(h.image)}"
             alt="${esc(h.title)}"
             loading="lazy"
           >`
-
           :
-
           `<div
             style="width:100%;height:100%;background:var(--brown)"
           ></div>`
-
         }
 
 
@@ -3109,9 +3117,7 @@ function renderHero() {
 
       ${
         h2
-
         ?
-
         `<div
           class="hero-side"
           onclick="openReader(${h2.id})"
@@ -3140,19 +3146,14 @@ function renderHero() {
           </div>
 
         </div>`
-
         :
-
         ''
-
       }
 
 
       ${
         h3
-
         ?
-
         `<div
           class="hero-side"
           onclick="openReader(${h3.id})"
@@ -3181,11 +3182,8 @@ function renderHero() {
           </div>
 
         </div>`
-
         :
-
         ''
-
       }
 
     </div>
@@ -3220,20 +3218,27 @@ function renderArticles() {
           new Date(b.date) -
           new Date(a.date)
       );
-// Glavni članek je že prikazan v HERO delu,
-// zato ga na domači strani ne prikažemo še enkrat.
-// Pri iskanju in v posameznih rubrikah ostane viden.
-const featured = arts[0];
 
-if (
-  STATE.currentCategory === 'vse' &&
-  !q &&
-  featured
-) {
-  arts = arts.filter(
-    a => a.id !== featured.id
-  );
-}
+
+  // Glavni članek je že prikazan v HERO delu,
+  // zato ga na domači strani ne prikažemo še enkrat.
+  // Pri iskanju in v posameznih rubrikah ostane viden.
+
+  const featured = arts[0];
+
+
+  if (
+    STATE.currentCategory === 'vse' &&
+    !q &&
+    featured
+  ) {
+
+    arts = arts.filter(
+      a => a.id !== featured.id
+    );
+
+  }
+
 
   if (
     STATE.currentCategory !== 'vse'
@@ -3613,6 +3618,7 @@ function updateReaderAdminUI() {
       'readerAdminToggle'
     );
 
+
   if (toggle) {
 
     toggle.textContent =
@@ -3627,6 +3633,7 @@ function updateReaderAdminUI() {
     document.getElementById(
       'readerNewArticle'
     );
+
 
   if (newArticle) {
 
@@ -3668,6 +3675,7 @@ function setupReaderSearch() {
       'readerSearchInput'
     );
 
+
   if (!input) return;
 
 
@@ -3688,6 +3696,7 @@ function setupReaderSearch() {
           document.getElementById(
             'searchInput'
           );
+
 
         if (mainSearch) {
 
@@ -3849,10 +3858,12 @@ function openReader(id) {
       'currentDate'
     );
 
+
   const readerDate =
     document.getElementById(
       'readerCurrentDate'
     );
+
 
   if (
     mainDate &&
@@ -3879,6 +3890,7 @@ function openReader(id) {
       'readerOverlay'
     );
 
+
   overlay.classList.add('open');
 
 
@@ -3894,10 +3906,12 @@ function openReader(id) {
       'searchInput'
     );
 
+
   const readerSearch =
     document.getElementById(
       'readerSearchInput'
     );
+
 
   if (
     mainSearch &&
@@ -4862,6 +4876,7 @@ function setupSearch() {
       'searchInput'
     );
 
+
   if (!input) return;
 
 
@@ -5051,3 +5066,4 @@ function formatContent(text) {
 
 </body>
 </html>
+```
